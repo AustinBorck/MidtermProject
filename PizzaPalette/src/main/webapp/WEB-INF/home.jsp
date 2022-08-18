@@ -8,5 +8,7 @@
 </head>
 <body>
 <h1>Pizza Palette</h1>
+
+${SMOKETEST }  
 </body>
 </html>

@@ -1,5 +1,10 @@
 package com.skilldistillery.pizzapalette.data;
 
-public interface UserDAO {
+import com.skilldistillery.pizzapalette.entities.User;
 
+public interface UserDAO {
+	
+	
+	User findById(int userId);
+	
 }
