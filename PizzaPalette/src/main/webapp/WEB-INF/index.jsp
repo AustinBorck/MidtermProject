@@ -20,53 +20,21 @@
 
 	<main class="container-fluid">
 		<h1>Pizza Palette</h1>
-		
-		<h3>Featured Pizzas</h3>
+		<br>
 		
 		<form action="loginButton.do" method="GET">
 		<input class="button" type="submit" value="Login">
 		</form>
+		<br> <br>
  		
-		<form class="form" action="add.do" method="GET">
-			Show All: <input class="button" type="submit" value="Add Book" />
-		</form>
-		<br>
-		<br>
-		
-		<form class="form" action="findAll.do" method="GET">
-			Show All: <input class="button" type="submit" value="Show All Books" />
-		</form>
-		<br>
-		<br>
-
 		<form action="searchKeyword.do" method="GET">
-			Search by KEYWORD: <input class="form-control" type="text" name="keyword" /><br>
+			Search: <input class="form-control" type="text" name="keyword" /><br>
 			<input class="button" type="submit" value="Search" />
 		</form>
 		<br> <br>
-
-		<form action="getAuthor.do" method="GET">
-			Search by Author: <input class="form-control" type="text" name="author" /><br> 
-			<input class="button" type="submit" value="Show Books" />
-		</form>
+		
+		<h3>Featured Pizzas</h3>
 		<br> <br>
-
-		<form action="getGenre.do" method="GET">
-			Search by Genre: <input class="form-control" type="text" name="genre" /><br>
-			<input class="button" type="submit" value="Show Books" />
-		</form>
-		<br> <br>
-
-		<form action="getSeriesName.do" method="GET">
-			Search by Series Name: <input class="form-control" type="text" name="seriesName" /><br> 
-		<input class="button" type="submit" value="Show Books" />
-		</form>
-		<br> <br>
-
-		<form action="getDescription.do" method="GET">
-			Search by Book Description: <input class="form-control" type="text" name="description" /><br> 
-			<input class="button" type="submit" value="Show Books" />
-		</form>
 
 	</main>
 
