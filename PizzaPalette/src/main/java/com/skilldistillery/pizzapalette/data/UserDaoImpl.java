@@ -41,38 +41,6 @@ public class UserDaoImpl implements UserDAO {
 		return pizzaJointList;
 	}
 	
-//	@Override
-//	public List<PizzaJoint> findName(String name) {
-//		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-//		String jpql = "SELECT p FROM PizzaJoint p WHERE p.name LIKE :name";
-//		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
-//					 .setParameter("name", "%" + name + "%")
-//					 .getResultList();
-//		return pizzaJointList;
-//	}
-//
-//	@Override
-//	public List<PizzaJoint> findCity(String keyword) {
-//		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-//		String jpql = "SELECT a FROM Address a WHERE a.city LIKE :city OR a.state LIKE :state OR a.zip LIKE :zip";
-//		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
-//					 .setParameter("city", "%" + keyword + "%")
-//					 .setParameter("state", "%" + keyword + "%")
-//					 .setParameter("zip", "%" + keyword + "%")
-//					 .getResultList();
-//		return pizzaJointList;
-//	}
-//
-//	@Override
-//	public List<PizzaJoint> findAttribute(String name) {
-//		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-//		String jpql = "SELECT a FROM Attribute a WHERE a.name LIKE :name";
-//		pizzaJointList = em.createQuery(jpql, Attribute.class)
-//					 .setParameter("name", "%" + name + "%")
-//					 .getResultList();
-//		return pizzaJointList;
-//	}
-
 	@Override
 	public User login(String username, String password) {
 		String jpql = "SELECT u FROM User u WHERE u.username = :u AND u.password = :p AND u.enabled = true";
@@ -102,14 +70,23 @@ public class UserDaoImpl implements UserDAO {
 			updtdUser.setUsername(user.getUsername());
 			updtdUser.setPassword(user.getPassword());
 			updtdUser.setFirstName(user.getFirstName());
-			updtdUser.setAddress(user.getAddress().getStreet());
+			updtdUser.setAddress(user.getAddress());
 		}
 		return updtdUser;
 	}
 
 	@Override
 	public boolean deactivateUser(int id) {
-		return false;
+		boolean successfulDeac = false;
+//		User deletedUser = em.find(User.class, id);
+//
+//		if (deletedUser != null) {
+//			setEnabled(deletedUser);
+//			
+//			successfulDelete = ! em.contains(deletedUser);
+//		}
+//
+		return successfulDeac;
 	}
 
 	@Override
@@ -134,7 +111,7 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public PizzaJoint deactivatePizzaJoint() {
+	public PizzaJoint deactivatePizzaJoint(int id) {
 		return null;
 	}
 
@@ -145,13 +122,8 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public Review deactivateRating() {
+	public Review deactivateReview(int id) {
 		return null;
 	}
 
-	@Override
-	public Review deactivateComments() {
-		return null;
-	}
-	
 }

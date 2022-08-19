@@ -14,12 +14,6 @@ public interface UserDAO {
 	
 	List<PizzaJoint> findPizzaJoint(String keyword);
 	
-//	List<PizzaJoint> findName(String name);
-	
-//	List<Address> findCity(String keyword);
-//	
-//	List<Attribute> findAttribute(String name);
-	
 	//////////////////////////////////////////////////////////
 	
 	public User login(String username, String password);
@@ -34,13 +28,11 @@ public interface UserDAO {
 	
 	public PizzaJoint editPizzaJoint(int id, PizzaJoint pizzaJoint);
 	
-	public PizzaJoint deactivatePizzaJoint();
+	public PizzaJoint deactivatePizzaJoint(int id);
 	
 	public Review addReview(Review review);
 	
 	
-	public Review deactivateRating();
-	
-	public Review deactivateComments();
+	public Review deactivateReview(int id);
 	
 }
