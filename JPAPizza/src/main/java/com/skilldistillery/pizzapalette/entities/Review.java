@@ -34,7 +34,7 @@ public class Review {
 
 	@ManyToOne
 	@JoinColumn(name = "pizza_joint_id")
-	private PizzaJoint pizzajoint;
+	private PizzaJoint pizzaJoint;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -43,6 +43,7 @@ public class Review {
 	@OneToMany(mappedBy = "review")
 	private List<ReviewImage> reviewImages;
 	
+	////////////////////////////GENERATED//////////////////////
 
 	public Review() {
 		super();
@@ -64,12 +65,12 @@ public class Review {
 		this.userReview = userReview;
 	}
 
-	public PizzaJoint getPizzajoint() {
-		return pizzajoint;
+	public PizzaJoint getPizzaJoint() {
+		return pizzaJoint;
 	}
 
-	public void setPizzajoint(PizzaJoint pizzajoint) {
-		this.pizzajoint = pizzajoint;
+	public void setPizzaJoint(PizzaJoint pizzaJoint) {
+		this.pizzaJoint = pizzaJoint;
 	}
 
 	public int getId() {

@@ -42,6 +42,7 @@ public class User {
 
 	@OneToMany(mappedBy = "userReview")
 	private List<Review> reviews;
+	
 	//////////////////////////////////// GENERATED/////////////////////////////////////////
 
 	public User() {

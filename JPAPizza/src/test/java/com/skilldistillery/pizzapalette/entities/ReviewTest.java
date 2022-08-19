@@ -2,7 +2,6 @@ package com.skilldistillery.pizzapalette.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
@@ -15,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ReviewTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Review review;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,13 +33,13 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		review = em.find(Review.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		review = null;
 	}
 
 //	@Test
@@ -49,35 +48,39 @@ class UserTest {
 //	}
 	
 	@Test
-	void test_User_entity_mapping(){
-		assertNotNull(user);
-		assertEquals("tiarrablandin", user.getUsername());
-		assertEquals("admin1", user.getPassword());
-		assertEquals("Tiarra", user.getFirstName());
-		assertEquals("Blandin", user.getLastName());
-		assertEquals(true, user.isEnabled());
-		assertEquals("admin", user.getRole());
+	void test_review_entity_mapping(){
+		assertNotNull(review);
+		assertEquals(5, review.getRating());
+		assertTrue(review.getComments().contains("Great pizza and"));
 	}
 	
 	@Test
-	void test_pizzaJoint_to_user_mapping() {
-		assertNotNull(user);
-		assertNotNull(user.getPizzaJoints());
-		assertTrue(user.getPizzaJoints().size() > 0);
+	void test_reviewDate_to_review_mapping() {
+		assertNotNull(review);
+		assertEquals(19, review.getReviewDate().getDayOfMonth());
+		assertEquals(8, review.getReviewDate().getMonthValue());
+		assertEquals(2022, review.getReviewDate().getYear());
 	}
 	
-//	@Test
-//	void test_address_to_user_mapping() {
-//		assertNotNull(user);
-//		assertNotNull(user.getAddress());
-//		assertEquals("", user.getAddress().getStreet());
-//	}
+	@Test
+	void test_pizzaJoint_to_review_mapping() {
+		assertNotNull(review);
+		assertNotNull(review.getPizzaJoint());
+		assertEquals("Slyce Pizza Co.", review.getPizzaJoint().getName());
+	}
 	
 	@Test
-	void test_reviwes_to_user_mapping() {
-		assertNotNull(user);
-		assertNotNull(user.getReviews());
-		assertTrue(user.getReviews().size() > 0);
+	void test_userReview_to_review_mapping() {
+		assertNotNull(review);
+		assertNotNull(review.getUserReview());
+		assertEquals("tiarrablandin", review.getUserReview().getUsername());
+	}
+	
+	@Test
+	void test_reviewImages_to_review_mapping() {
+		assertNotNull(review);
+		assertNotNull(review.getReviewImages());
+		assertTrue(review.getReviewImages().size() == 0);
 	}
 
 }

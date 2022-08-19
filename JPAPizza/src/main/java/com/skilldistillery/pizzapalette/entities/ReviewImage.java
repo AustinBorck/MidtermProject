@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="review_image")
 public class ReviewImage {
 
 	@Id
@@ -23,6 +25,8 @@ public class ReviewImage {
 	@ManyToOne
 	@JoinColumn(name = "review_id")
 	private Review review;
+	
+	/////////////////////////////GENERATED/////////////////////
 
 	public ReviewImage() {
 	}

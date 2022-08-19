@@ -24,6 +24,8 @@ public class Address {
 
 	@Column(name = "phone_number")
 	private String phoneNumber;
+	
+	/////////////////////////////////////GENERATED/////////////////////////////////////
 
 	public Address() {
 	}

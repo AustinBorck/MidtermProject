@@ -14,10 +14,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Table(name="pizza_joint")
 public class PizzaJoint {
 
 	@Id
@@ -55,7 +57,7 @@ public class PizzaJoint {
 	@OneToMany(mappedBy = "pizzaJoint")
 	private List<Review> reviews;
 	
-	
+	///////////////////////////////GENERATED///////////////////////
 
 	public PizzaJoint() {
 	}

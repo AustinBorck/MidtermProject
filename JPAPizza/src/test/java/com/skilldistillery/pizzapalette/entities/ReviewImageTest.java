@@ -15,11 +15,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ReviewImageTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private ReviewImage reviewImage;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,13 +34,13 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		reviewImage = em.find(ReviewImage.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		reviewImage = null;
 	}
 
 //	@Test
@@ -49,35 +49,15 @@ class UserTest {
 //	}
 	
 	@Test
-	void test_User_entity_mapping(){
-		assertNotNull(user);
-		assertEquals("tiarrablandin", user.getUsername());
-		assertEquals("admin1", user.getPassword());
-		assertEquals("Tiarra", user.getFirstName());
-		assertEquals("Blandin", user.getLastName());
-		assertEquals(true, user.isEnabled());
-		assertEquals("admin", user.getRole());
+	void test_reviewImage_entity_mapping(){
+		assertNull(reviewImage);
+//		assertEquals("", reviewImage.getImageUrl());
 	}
 	
 	@Test
-	void test_pizzaJoint_to_user_mapping() {
-		assertNotNull(user);
-		assertNotNull(user.getPizzaJoints());
-		assertTrue(user.getPizzaJoints().size() > 0);
+	void test_pizzaJoint_to_reviewImage_mapping() {
+		assertNull(reviewImage);
+//		assertTrue(reviewImage.getReview().getComments().contains("Great pizza and"));
 	}
 	
-//	@Test
-//	void test_address_to_user_mapping() {
-//		assertNotNull(user);
-//		assertNotNull(user.getAddress());
-//		assertEquals("", user.getAddress().getStreet());
-//	}
-	
-	@Test
-	void test_reviwes_to_user_mapping() {
-		assertNotNull(user);
-		assertNotNull(user.getReviews());
-		assertTrue(user.getReviews().size() > 0);
-	}
-
 }

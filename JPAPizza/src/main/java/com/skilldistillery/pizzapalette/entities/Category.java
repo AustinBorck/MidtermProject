@@ -20,7 +20,9 @@ public class Category {
 	private String description;
 	
 	@OneToMany(mappedBy = "category")
-	private List<Category> categories;
+	private List<Attribute> attributes;
+	
+	/////////////////////////////////GENERATED////////////////////////
 
 	public Category() {
 	}
@@ -49,12 +51,12 @@ public class Category {
 		this.description = description;
 	}
 
-	public List<Category> getCategories() {
-		return categories;
+	public List<Attribute> getAttributes() {
+		return attributes;
 	}
 
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
+	public void setAttributes(List<Attribute> attributes) {
+		this.attributes = attributes;
 	}
 
 	@Override

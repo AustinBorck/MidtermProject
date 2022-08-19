@@ -15,11 +15,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class AddressTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Address address;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,13 +34,13 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		address = em.find(Address.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		address = null;
 	}
 
 //	@Test
@@ -49,35 +49,13 @@ class UserTest {
 //	}
 	
 	@Test
-	void test_User_entity_mapping(){
-		assertNotNull(user);
-		assertEquals("tiarrablandin", user.getUsername());
-		assertEquals("admin1", user.getPassword());
-		assertEquals("Tiarra", user.getFirstName());
-		assertEquals("Blandin", user.getLastName());
-		assertEquals(true, user.isEnabled());
-		assertEquals("admin", user.getRole());
+	void test_address_entity_mapping(){
+		assertNotNull(address);
+		assertEquals("163 W Mountain Ave", address.getStreet());
+		assertEquals("Fort Collins", address.getCity());
+		assertEquals("CO", address.getState());
+		assertEquals("80524", address.getZip());
+		assertEquals("9702219000", address.getPhoneNumber());
 	}
 	
-	@Test
-	void test_pizzaJoint_to_user_mapping() {
-		assertNotNull(user);
-		assertNotNull(user.getPizzaJoints());
-		assertTrue(user.getPizzaJoints().size() > 0);
-	}
-	
-//	@Test
-//	void test_address_to_user_mapping() {
-//		assertNotNull(user);
-//		assertNotNull(user.getAddress());
-//		assertEquals("", user.getAddress().getStreet());
-//	}
-	
-	@Test
-	void test_reviwes_to_user_mapping() {
-		assertNotNull(user);
-		assertNotNull(user.getReviews());
-		assertTrue(user.getReviews().size() > 0);
-	}
-
 }
