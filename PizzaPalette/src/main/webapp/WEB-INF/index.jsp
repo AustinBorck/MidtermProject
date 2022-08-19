@@ -7,7 +7,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Book Directory</title>
+<title>PizzaPalette</title>
 
 <jsp:include page="head.jsp" />
 
@@ -19,8 +19,14 @@
 	<jsp:include page="navBar.jsp"></jsp:include>
 
 	<main class="container-fluid">
-		<h1>Welcome to the book directory!</h1>
-
+		<h1>Pizza Palette</h1>
+		
+		<h3>Featured Pizzas</h3>
+		
+		<form action="loginButton.do" method="GET">
+		<input class="button" type="submit" value="Login">
+		</form>
+ 		
 		<form class="form" action="add.do" method="GET">
 			Show All: <input class="button" type="submit" value="Add Book" />
 		</form>
