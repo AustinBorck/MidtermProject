@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public List<PizzaJoint> findPizzaJoint(String keyword) {
 		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT DISTINCT p FROM PizzaJoint p JOIN p.attributes att WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR att.name LIKE :name";
+		String jpql = "SELECT DISTINCT p FROM PizzaJoint p JOIN p.attributes att WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR att.name LIKE :name AND p.approved = true";
 		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
 					 .setParameter("name", "%" + keyword + "%") 
 					 .setParameter("city", "%" + keyword + "%")
@@ -78,14 +78,13 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public boolean deactivateUser(int id) {
 		boolean successfulDeac = false;
-//		User deletedUser = em.find(User.class, id);
-//
-//		if (deletedUser != null) {
-//			setEnabled(deletedUser);
-//			
-//			successfulDelete = ! em.contains(deletedUser);
-//		}
-//
+		User deacUser = em.find(User.class, id);
+
+		if (deacUser != null) {
+			deacUser.setEnabled(false);
+			successfulDeac = true;
+		}
+
 		return successfulDeac;
 	}
 
@@ -116,8 +115,16 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public PizzaJoint deactivatePizzaJoint(int id) {
-		return null;
+	public boolean deactivatePizzaJoint(int id) {
+		boolean successfulDeac = false;
+		PizzaJoint deacPizzaJoint = em.find(PizzaJoint.class, id);
+
+		if (deacPizzaJoint != null) {
+			deacPizzaJoint.setApproved(false);
+			successfulDeac = true;
+		}
+
+		return successfulDeac;
 	}
 
 	@Override
@@ -127,8 +134,16 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public Review deactivateReview(int id) {
-		return null;
+	public boolean deactivateReview(int id) {
+		boolean successfulDeac = false;
+		Review deacReview = em.find(Review.class, id);
+
+		if (deacReview != null) {
+			deacReview.setActive(false);
+			successfulDeac = true;
+		}
+
+		return successfulDeac;
 	}
 
 }

@@ -30,11 +30,11 @@ public interface UserDAO {
 	
 	public PizzaJoint editPizzaJoint(int id, PizzaJoint pizzaJoint);
 	
-	public PizzaJoint deactivatePizzaJoint(int id);
+	public boolean deactivatePizzaJoint(int id);
 	
 	public Review addReview(Review review);
 	
 	
-	public Review deactivateReview(int id);
+	public boolean deactivateReview(int id);
 	
 }
