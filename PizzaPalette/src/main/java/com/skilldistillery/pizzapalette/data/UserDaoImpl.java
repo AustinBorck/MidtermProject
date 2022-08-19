@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public List<PizzaJoint> findPizzaJoint(String keyword) {
 		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT p FROM PizzaJoint p JOIN p.attributes att WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR att.name LIKE :name";
+		String jpql = "SELECT DISTINCT p FROM PizzaJoint p JOIN p.attributes att WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR att.name LIKE :name";
 		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
 					 .setParameter("name", "%" + keyword + "%") 
 					 .setParameter("city", "%" + keyword + "%")

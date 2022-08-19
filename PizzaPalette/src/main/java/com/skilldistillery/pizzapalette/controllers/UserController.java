@@ -55,7 +55,11 @@ public class UserController {
 	@RequestMapping("searchKeyword.do")
 	public String searchByKeyword(Model model, String keyword) {
 		List<PizzaJoint> pizzajoints = userDao.findPizzaJoint(keyword);
+		if(pizzajoints.size() > 0) {
 		model.addAttribute("results", pizzajoints);
 		return "result";
+		}else {
+			return "noResults";
+		}
 	}
 }
