@@ -30,20 +30,20 @@ PICTURE
 
 ### Lessons Learned
 
-##### TODO BIG LESSON LEARNED
+#### TODO BIG LESSON LEARNED
 desc how we overcame it
-##### TODO BIG LESSON LEARNED
+#### TODO BIG LESSON LEARNED
 desc how we overcame it
-##### TODO BIG LESSON LEARNED
+#### TODO BIG LESSON LEARNED
 desc how we overcame it
 
 ### Stretch Goals
 
-##### Title of goal
+#### Title of goal
 HOW WE MADE IT HAPPEN
-##### Title of goal
+#### Title of goal
 HOW WE MADE IT HAPPEN
-##### Title of goal
+#### Title of goal
 HOW WE MADE IT HAPPEN
 ### How to Download and Run
 * Download
