@@ -1,4 +1,5 @@
 # MidtermProject
+## Pizza Palette
 ### Team
 * Tiarra Blandin (Developer, DBA)
 * Diego Escutia (Developer, Scrum Master)
