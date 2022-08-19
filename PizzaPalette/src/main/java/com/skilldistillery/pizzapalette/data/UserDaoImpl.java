@@ -1,6 +1,5 @@
 package com.skilldistillery.pizzapalette.data;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public List<Address> findCity(String city) {
 		List<Address> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT p FROM Pizza_joint p WHERE p.city LIKE :city";
+		String jpql = "SELECT a FROM Address a WHERE a.city LIKE :city";
 		pizzaJointList = em.createQuery(jpql, Address.class)
 					 .setParameter("city", "%" + city + "%")
 					 .getResultList();
@@ -50,17 +49,32 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public List<Address> findState(String state) {
-		return null;
+		List<Address> pizzaJointList = new ArrayList<>();
+		String jpql = "SELECT a FROM Address a WHERE a.state LIKE :state";
+		pizzaJointList = em.createQuery(jpql, Address.class)
+					 .setParameter("state", "%" + state + "%")
+					 .getResultList();
+		return pizzaJointList;
 	}
 
 	@Override
 	public List<Address> findZip(String zip) {
-		return null;
+		List<Address> pizzaJointList = new ArrayList<>();
+		String jpql = "SELECT a FROM Address a WHERE a.zip LIKE :zip";
+		pizzaJointList = em.createQuery(jpql, Address.class)
+					 .setParameter("zip", "%" + zip + "%")
+					 .getResultList();
+		return pizzaJointList;
 	}
 
 	@Override
 	public List<Attribute> findAttribute(String name) {
-		return null;
+		List<Attribute> pizzaJointList = new ArrayList<>();
+		String jpql = "SELECT a FROM Attribute a WHERE a.name LIKE :name";
+		pizzaJointList = em.createQuery(jpql, Attribute.class)
+					 .setParameter("name", "%" + name + "%")
+					 .getResultList();
+		return pizzaJointList;
 	}
 
 	@Override
