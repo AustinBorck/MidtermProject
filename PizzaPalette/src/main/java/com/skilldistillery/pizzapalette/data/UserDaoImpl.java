@@ -28,36 +28,50 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public List<PizzaJoint> findName(String name) {
+	public List<PizzaJoint> findPizzaJoint(String keyword) {
 		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT p FROM PizzaJoint p WHERE p.name LIKE :name";
+		String jpql = "SELECT p FROM PizzaJoint p WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR p.attribute.name LIKE :name";
 		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
-					 .setParameter("name", "%" + name + "%")
-					 .getResultList();
-		return pizzaJointList;
-	}
-
-	@Override
-	public List<Address> findCity(String keyword) {
-		List<Address> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT a FROM Address a WHERE a.city LIKE :city OR a.state LIKE :state OR a.zip LIKE :zip";
-		pizzaJointList = em.createQuery(jpql, Address.class)
+					 .setParameter("name", "%" + keyword + "%") 
 					 .setParameter("city", "%" + keyword + "%")
 					 .setParameter("state", "%" + keyword + "%")
 					 .setParameter("zip", "%" + keyword + "%")
+					 .setParameter("name", "%" + keyword + "%")
 					 .getResultList();
 		return pizzaJointList;
 	}
-
-	@Override
-	public List<Attribute> findAttribute(String name) {
-		List<Attribute> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT a FROM Attribute a WHERE a.name LIKE :name";
-		pizzaJointList = em.createQuery(jpql, Attribute.class)
-					 .setParameter("name", "%" + name + "%")
-					 .getResultList();
-		return pizzaJointList;
-	}
+	
+//	@Override
+//	public List<PizzaJoint> findName(String name) {
+//		List<PizzaJoint> pizzaJointList = new ArrayList<>();
+//		String jpql = "SELECT p FROM PizzaJoint p WHERE p.name LIKE :name";
+//		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
+//					 .setParameter("name", "%" + name + "%")
+//					 .getResultList();
+//		return pizzaJointList;
+//	}
+//
+//	@Override
+//	public List<PizzaJoint> findCity(String keyword) {
+//		List<PizzaJoint> pizzaJointList = new ArrayList<>();
+//		String jpql = "SELECT a FROM Address a WHERE a.city LIKE :city OR a.state LIKE :state OR a.zip LIKE :zip";
+//		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
+//					 .setParameter("city", "%" + keyword + "%")
+//					 .setParameter("state", "%" + keyword + "%")
+//					 .setParameter("zip", "%" + keyword + "%")
+//					 .getResultList();
+//		return pizzaJointList;
+//	}
+//
+//	@Override
+//	public List<PizzaJoint> findAttribute(String name) {
+//		List<PizzaJoint> pizzaJointList = new ArrayList<>();
+//		String jpql = "SELECT a FROM Attribute a WHERE a.name LIKE :name";
+//		pizzaJointList = em.createQuery(jpql, Attribute.class)
+//					 .setParameter("name", "%" + name + "%")
+//					 .getResultList();
+//		return pizzaJointList;
+//	}
 
 	@Override
 	public User login(String username, String password) {
@@ -75,8 +89,9 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public User addUser(int id) {
-		return null;
+	public User addUser(User username) {
+		em.persist(username);
+		return username;
 	}
 
 	@Override

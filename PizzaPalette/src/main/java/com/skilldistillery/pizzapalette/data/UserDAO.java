@@ -12,17 +12,19 @@ public interface UserDAO {
 	
 	User findUsername(String username);
 	
-	List<PizzaJoint> findName(String name);
+	List<PizzaJoint> findPizzaJoint(String keyword);
 	
-	List<Address> findCity(String keyword);
+//	List<PizzaJoint> findName(String name);
 	
-	List<Attribute> findAttribute(String name);
+//	List<Address> findCity(String keyword);
+//	
+//	List<Attribute> findAttribute(String name);
 	
 	//////////////////////////////////////////////////////////
 	
 	public User login(String username, String password);
 	
-	public User addUser(int id);
+	public User addUser(User username);
 	
 	public User editUser(int id);
 
