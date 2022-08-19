@@ -30,7 +30,7 @@ PICTURE
 * JSP
 
 ## Lessons Learned
------
+
 #### TODO BIG LESSON LEARNED
 desc how we overcame it
 #### TODO BIG LESSON LEARNED
@@ -39,7 +39,7 @@ desc how we overcame it
 desc how we overcame it
 
 ## Stretch Goals
------
+
 #### Title of goal
 HOW WE MADE IT HAPPEN
 #### Title of goal
@@ -47,7 +47,7 @@ HOW WE MADE IT HAPPEN
 #### Title of goal
 HOW WE MADE IT HAPPEN
 ## How to Download and Run
------
+
 * Download
 * Set-up
 * install DB
