@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public List<PizzaJoint> findPizzaJoint(String keyword) {
 		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT p FROM PizzaJoint p WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR p.attribute.name LIKE :name";
+		String jpql = "SELECT p FROM PizzaJoint p WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR p.attributes.name LIKE :name";
 		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
 					 .setParameter("name", "%" + keyword + "%") 
 					 .setParameter("city", "%" + keyword + "%")
@@ -95,8 +95,16 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public User editUser(int id) {
-		return null;
+	public User editUser(int id, User user) {
+		User updtdUser = em.find(User.class, id);
+
+		if (updtdUser != null) {
+			updtdUser.setUsername(user.getUsername());
+			updtdUser.setPassword(user.getPassword());
+			updtdUser.setFirstName(user.getFirstName());
+			updtdUser.setAddress(user.getAddress().getStreet());
+		}
+		return updtdUser;
 	}
 
 	@Override
@@ -105,8 +113,9 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public PizzaJoint addPizzaJoint() {
-		return null;
+	public PizzaJoint addPizzaJoint(PizzaJoint name) {
+		em.persist(name);
+		return name;
 	}
 
 	@Override
@@ -120,13 +129,9 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public Review addRating() {
-		return null;
-	}
-
-	@Override
-	public Review addComments() {
-		return null;
+	public Review addReview(Review review) {
+		em.persist(review);
+		return review;
 	}
 
 	@Override

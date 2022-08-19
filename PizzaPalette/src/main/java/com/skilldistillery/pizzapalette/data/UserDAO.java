@@ -26,19 +26,18 @@ public interface UserDAO {
 	
 	public User addUser(User username);
 	
-	public User editUser(int id);
+	public User editUser(int id, User user);
 
 	public boolean deactivateUser(int id);
 	
-	public PizzaJoint addPizzaJoint();
+	public PizzaJoint addPizzaJoint(PizzaJoint name);
 	
 	public PizzaJoint editPizzaJoint();
 	
 	public PizzaJoint deactivatePizzaJoint();
 	
-	public Review addRating();
+	public Review addReview(Review review);
 	
-	public Review addComments();
 	
 	public Review deactivateRating();
 	
