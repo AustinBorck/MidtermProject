@@ -12,6 +12,8 @@ public interface UserDAO {
 	
 	User findUsername(String username);
 	
+	PizzaJoint findSinglePizzaJoint(int id);
+	
 	List<PizzaJoint> findPizzaJoint(String keyword);
 	
 	//////////////////////////////////////////////////////////

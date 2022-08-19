@@ -95,6 +95,11 @@ public class UserDaoImpl implements UserDAO {
 		return name;
 	}
 
+	public PizzaJoint findSinglePizzaJoint(int id){
+		return em.find(PizzaJoint.class, id);
+		}
+
+	
 	@Override
 	public PizzaJoint editPizzaJoint(int id, PizzaJoint pizzaJoint) {
 		PizzaJoint updtdPizzaJoint = em.find(PizzaJoint.class, id);
