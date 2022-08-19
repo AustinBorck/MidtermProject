@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public List<PizzaJoint> findPizzaJoint(String keyword) {
 		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT p FROM PizzaJoint p WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR p.attributes.name LIKE :name";
+		String jpql = "SELECT p FROM PizzaJoint p JOIN p.attributes att WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR att.name LIKE :name";
 		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
 					 .setParameter("name", "%" + keyword + "%") 
 					 .setParameter("city", "%" + keyword + "%")
@@ -119,8 +119,18 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public PizzaJoint editPizzaJoint() {
-		return null;
+	public PizzaJoint editPizzaJoint(int id, PizzaJoint pizzaJoint) {
+		PizzaJoint updtdPizzaJoint = em.find(PizzaJoint.class, id);
+
+		if (updtdPizzaJoint != null) {
+			updtdPizzaJoint.setImage(pizzaJoint.getImage());
+			updtdPizzaJoint.setName(pizzaJoint.getName());
+			updtdPizzaJoint.setWebsite(pizzaJoint.getWebsite());
+			updtdPizzaJoint.setDescription(pizzaJoint.getDescription());
+			updtdPizzaJoint.setAddress(pizzaJoint.getAddress());
+			updtdPizzaJoint.setAttributes(pizzaJoint.getAttributes());
+		}
+		return updtdPizzaJoint;
 	}
 
 	@Override

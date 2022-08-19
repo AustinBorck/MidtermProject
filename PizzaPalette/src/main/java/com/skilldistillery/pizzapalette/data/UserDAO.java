@@ -32,7 +32,7 @@ public interface UserDAO {
 	
 	public PizzaJoint addPizzaJoint(PizzaJoint name);
 	
-	public PizzaJoint editPizzaJoint();
+	public PizzaJoint editPizzaJoint(int id, PizzaJoint pizzaJoint);
 	
 	public PizzaJoint deactivatePizzaJoint();
 	
