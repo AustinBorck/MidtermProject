@@ -5,6 +5,12 @@
 	
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+	<class>com.skilldistillery.pizzapalette.entities.Address</class>
+	<class>com.skilldistillery.pizzapalette.entities.Category</class>
+	<class>com.skilldistillery.pizzapalette.entities.PizzaJoint</class>
+	<class>com.skilldistillery.pizzapalette.entities.Review</class>
+	<class>com.skilldistillery.pizzapalette.entities.ReviewImage</class>
+	<class>com.skilldistillery.pizzapalette.entities.Selection</class>
 	<class>com.skilldistillery.pizzapalette.entities.User</class>
 	
     <properties>
