@@ -17,7 +17,7 @@
 	
 	<h1>PizzaJoints </h1>
 	<c:forEach var="pizzajoint" items="${results}">
-	${pizzajoint.name}
+	<td><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
 	</c:forEach>
 	
 	<%-- <div>

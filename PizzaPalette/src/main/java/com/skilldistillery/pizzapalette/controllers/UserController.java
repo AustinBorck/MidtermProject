@@ -62,4 +62,34 @@ public class UserController {
 			return "noResults";
 		}
 	}
+	@RequestMapping("singleResult.do")
+	public String singleResult(Model model, int id) {
+		PizzaJoint pizzaJoint = null;
+		pizzaJoint = userDao.findSinglePizzaJoint(id);
+		model.addAttribute("pizzaJoint", pizzaJoint);
+			return "pizzaJointPage";
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
