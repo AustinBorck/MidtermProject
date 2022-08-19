@@ -14,11 +14,7 @@ public interface UserDAO {
 	
 	List<PizzaJoint> findName(String name);
 	
-	List<Address> findCity(String city);
-	
-	List<Address> findState(String state);
-	
-	List<Address> findZip(String zip);
+	List<Address> findCity(String keyword);
 	
 	List<Attribute> findAttribute(String name);
 	

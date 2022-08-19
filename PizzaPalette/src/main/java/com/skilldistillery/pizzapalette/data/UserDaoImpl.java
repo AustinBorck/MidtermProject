@@ -38,31 +38,13 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public List<Address> findCity(String city) {
+	public List<Address> findCity(String keyword) {
 		List<Address> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT a FROM Address a WHERE a.city LIKE :city";
+		String jpql = "SELECT a FROM Address a WHERE a.city LIKE :city OR a.state LIKE :state OR a.zip LIKE :zip";
 		pizzaJointList = em.createQuery(jpql, Address.class)
-					 .setParameter("city", "%" + city + "%")
-					 .getResultList();
-		return pizzaJointList;
-	}
-
-	@Override
-	public List<Address> findState(String state) {
-		List<Address> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT a FROM Address a WHERE a.state LIKE :state";
-		pizzaJointList = em.createQuery(jpql, Address.class)
-					 .setParameter("state", "%" + state + "%")
-					 .getResultList();
-		return pizzaJointList;
-	}
-
-	@Override
-	public List<Address> findZip(String zip) {
-		List<Address> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT a FROM Address a WHERE a.zip LIKE :zip";
-		pizzaJointList = em.createQuery(jpql, Address.class)
-					 .setParameter("zip", "%" + zip + "%")
+					 .setParameter("city", "%" + keyword + "%")
+					 .setParameter("state", "%" + keyword + "%")
+					 .setParameter("zip", "%" + keyword + "%")
 					 .getResultList();
 		return pizzaJointList;
 	}
