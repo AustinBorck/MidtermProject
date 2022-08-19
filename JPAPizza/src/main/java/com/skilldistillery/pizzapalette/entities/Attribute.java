@@ -1,14 +1,18 @@
 package com.skilldistillery.pizzapalette.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Selection {
+public class Attribute {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +22,32 @@ public class Selection {
 
 	private String description;
 
-	// NO ARGS CONSTRUCTOR
-	public Selection() {
+	@ManyToMany(mappedBy = "attributes")
+	private List<PizzaJoint> pizzaJoints;
+	
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
+
+	public Attribute() {
 	}
 
-	// GETTERS SETTERS
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<PizzaJoint> getPizzaJoints() {
+		return pizzaJoints;
+	}
+
+	public void setPizzaJoints(List<PizzaJoint> pizzaJoints) {
+		this.pizzaJoints = pizzaJoints;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -60,14 +85,13 @@ public class Selection {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Selection other = (Selection) obj;
+		Attribute other = (Attribute) obj;
 		return id == other.id;
 	}
 
-	// TO STRING
 	@Override
 	public String toString() {
-		return "Selection [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "Attribute [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ReviewImage {
@@ -17,8 +19,20 @@ public class ReviewImage {
 
 	@Column(name = "image_url")
 	private String imageUrl;
+	
+	@ManyToOne
+	@JoinColumn(name = "review_id")
+	private Review review;
 
 	public ReviewImage() {
+	}
+
+	public Review getReview() {
+		return review;
+	}
+
+	public void setReview(Review review) {
+		this.review = review;
 	}
 
 	public int getId() {

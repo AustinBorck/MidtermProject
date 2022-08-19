@@ -1,6 +1,7 @@
 package com.skilldistillery.pizzapalette.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -28,8 +32,44 @@ public class Review {
 
 	private boolean active;
 
+	@ManyToOne
+	@JoinColumn(name = "pizza_joint_id")
+	private PizzaJoint pizzajoint;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User userReview;
+	
+	@OneToMany(mappedBy = "review")
+	private List<ReviewImage> reviewImages;
+	
+
 	public Review() {
 		super();
+	}
+
+	public List<ReviewImage> getReviewImages() {
+		return reviewImages;
+	}
+
+	public void setReviewImages(List<ReviewImage> reviewImages) {
+		this.reviewImages = reviewImages;
+	}
+
+	public User getUserReview() {
+		return userReview;
+	}
+
+	public void setUserReview(User userReview) {
+		this.userReview = userReview;
+	}
+
+	public PizzaJoint getPizzajoint() {
+		return pizzajoint;
+	}
+
+	public void setPizzajoint(PizzaJoint pizzajoint) {
+		this.pizzajoint = pizzajoint;
 	}
 
 	public int getId() {
