@@ -13,36 +13,40 @@ import com.skilldistillery.pizzapalette.entities.User;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private UserDAO userDao;
-	
-	@RequestMapping(path = {"/", "index.do"})
+
+	@RequestMapping(path = { "/", "index.do" })
 	public String home(Model model) {
 		return "index";
 	}
-	
-	@RequestMapping(path = "loginButton.do")
-	public String loginPage(Model model) {
-		return "loginPage";
+
+	@RequestMapping(path = "loginButton.do", method = RequestMethod.GET)
+	public String goToLoginFrom(HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+			return "accountPage";
+		} else {
+			return "loginPage";
+		}
 	}
-	
-	@RequestMapping(path = "login.do", method=RequestMethod.POST)
+
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String logInUser(HttpSession session, Model model, String username, String password) {
 		User user = userDao.login(username, password);
-				if (user == null) {
-					return "loginPage";
-				} else {
-					session.setAttribute("loggedInUser", user);
-					return "accountPage";
-				}
-		//ADD IF STATEMENTS FOR THE RETURNED USER FROM THE DAOIMPL METHOD
+		if (user == null) {
+			return "loginPage";
+		} else {
+			session.setAttribute("loggedInUser", user);
+			return "accountPage";
+		}
 	}
-	
+
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("loggedInUser");
 		return "index";
 	}
-	
+
 }
