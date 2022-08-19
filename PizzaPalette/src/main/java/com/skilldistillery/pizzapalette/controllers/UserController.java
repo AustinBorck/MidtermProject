@@ -1,5 +1,7 @@
 package com.skilldistillery.pizzapalette.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.pizzapalette.data.UserDAO;
+import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.User;
 
 @Controller
@@ -49,4 +52,10 @@ public class UserController {
 		return "index";
 	}
 
+	@RequestMapping("searchKeyword.do")
+	public String searchByKeyword(Model model, String keyword) {
+		List<PizzaJoint> pizzajoints = userDao.findPizzaJoint(keyword);
+		model.addAttribute("results", pizzajoints);
+		return "result";
+	}
 }

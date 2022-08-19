@@ -39,9 +39,9 @@
 		<br>
 		<br>
 
-		<form action="getTitle.do" method="GET">
-			Search by Title: <input class="form-control" type="text" name="title" /><br>
-			<input class="button" type="submit" value="Show Books" />
+		<form action="searchKeyword.do" method="GET">
+			Search by KEYWORD: <input class="form-control" type="text" name="keyword" /><br>
+			<input class="button" type="submit" value="Search" />
 		</form>
 		<br> <br>
 

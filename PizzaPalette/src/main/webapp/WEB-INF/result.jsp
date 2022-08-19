@@ -15,9 +15,12 @@
 
 	<jsp:include page="navBar.jsp"></jsp:include>
 	
-	<h1>Books </h1>
+	<h1>PizzaJoints </h1>
+	<c:forEach var="pizzajoint" items="${results}">
+	${pizzajoint.name}
+	</c:forEach>
 	
-	<div>
+	<%-- <div>
 		<table class="table table-striped table-hover table-md">
 		  <thead>
 		    <tr>
@@ -62,7 +65,7 @@
 		</c:forEach>
 		
 		</table>
-	</div>
+	</div> --%>
 	
 	<jsp:include page="foot.jsp" />
 
