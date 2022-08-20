@@ -103,8 +103,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "update.do", method = RequestMethod.POST)
-	public String update(Model model, int updateAccount, User updatedUser) {
+	public String update(Model model, int updateAccount, User updatedUser, HttpSession session) {
 		model.addAttribute("loggedInUser", userDao.editUser(updateAccount, updatedUser));
+		session.removeAttribute("loggedInUser");
+		updatedUser = userDao.findUsername(updateAccount);
+		session.setAttribute("loggedInUser", updatedUser);
+
 		return "accountPage";
 	}
 	

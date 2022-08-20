@@ -11,11 +11,11 @@
 User: ${user.username}
 <br>
 <form action="update.do" method="POST">
-<input type="hidden" name="username" value="${user.username}">
+<input type="hidden" name="username" value="${user.username}"><br>
 Password: <input type="text" name="password" value="${user.password}"><br>
 First Name: <input type="text" name="firstName" value="${user.firstName}"><br>
 Last Name: <input type="text" name="lastName" value="${user.lastName}"><br>
-<input type="hidden" value="${loggedInUser.id}" name="updateAccount"/>
+<input type="hidden" value="${user.id}" name="updateAccount"/>
 <input type="submit" value="Update Account"/>
 </form>
 </body>
