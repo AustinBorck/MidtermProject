@@ -17,6 +17,9 @@ Username: <input type="text" name="username">
 Password: <input type="password" name="password">
 <input type="submit"  value="Login">
 </form>
+<form action="createAccountPage.do" method="GET">
+New to PizzaPalette? <input type="submit"  value="Create an Account">
+</form>
 
 
 	<jsp:include page="foot.jsp" />

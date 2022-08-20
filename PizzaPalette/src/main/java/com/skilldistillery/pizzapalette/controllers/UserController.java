@@ -70,7 +70,10 @@ public class UserController {
 			return "pizzaJointPage";
 		}
 	
-	
+	@RequestMapping("createAccountPage.do")
+	public String createAccountPage(Model model) {
+		return "createAcccount";
+	}
 	
 	
 	
