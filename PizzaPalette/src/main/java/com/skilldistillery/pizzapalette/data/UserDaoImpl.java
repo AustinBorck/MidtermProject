@@ -23,8 +23,8 @@ public class UserDaoImpl implements UserDAO {
 	private EntityManager em;
 
 	@Override
-	public User findUsername(String username) {
-			return em.find(User.class, username);
+	public User findUsername(int id) {
+			return em.find(User.class, id);
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class UserDaoImpl implements UserDAO {
 			updtdUser.setUsername(user.getUsername());
 			updtdUser.setPassword(user.getPassword());
 			updtdUser.setFirstName(user.getFirstName());
-			updtdUser.setAddress(user.getAddress());
+			updtdUser.setLastName(user.getLastName());
 		}
 		return updtdUser;
 	}

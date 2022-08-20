@@ -96,6 +96,20 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping(path = "updateAccountPage.do")
+	public String updateAccountButton(Model model, int updateAccount) {
+		model.addAttribute("user", userDao.findUsername(updateAccount));
+		return "updateAccount";
+	}
+	
+	@RequestMapping(path = "update.do", method = RequestMethod.POST)
+	public String update(Model model, int updateAccount, User updatedUser) {
+		model.addAttribute("loggedInUser", userDao.editUser(updateAccount, updatedUser));
+		return "accountPage";
+	}
+	
+	
+	
 }
 	
 	

@@ -10,7 +10,7 @@ import com.skilldistillery.pizzapalette.entities.User;
 
 public interface UserDAO {
 	
-	User findUsername(String username);
+	User findUsername(int id);
 	
 	PizzaJoint findSinglePizzaJoint(int id);
 	

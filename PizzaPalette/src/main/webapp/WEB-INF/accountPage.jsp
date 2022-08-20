@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +11,19 @@
 <body>
 	<jsp:include page="navBar.jsp"></jsp:include>
 
-<h2>Your account </h2>
-${loggedInUser}
+	<h2>Welcome, ${loggedInUser.firstName}</h2>
 
-<form action="logout.do" method="POST">
-<input type="submit"  value="Logout">
-</form>
+	Username: ${loggedInUser.username}<br>
+	Password: ${loggedInUser.password}<br>
+	Last Name: ${loggedInUser.lastName}<br>
+
+	<form action="logout.do" method="POST">
+		<input type="submit" value="Logout">
+	</form>
+
+	<form action="updateAccountPage.do">
+	<input type="hidden" value="${loggedInUser.id}" name="updateAccount"/>
+	<input type="submit" value="Update Account"/>
+	</form>
 </body>
 </html>
