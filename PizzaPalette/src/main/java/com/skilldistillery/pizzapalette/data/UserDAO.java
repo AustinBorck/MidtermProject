@@ -24,4 +24,6 @@ public interface UserDAO {
 	
 	public boolean deactivateReview(int id);
 	
+	public User findUsername(int id);
+	
 }

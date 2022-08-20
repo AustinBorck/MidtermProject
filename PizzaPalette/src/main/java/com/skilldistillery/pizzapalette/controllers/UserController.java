@@ -21,10 +21,10 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 
-	@RequestMapping(path = { "/", "index.do" })
-	public String home(Model model) {
-		return "index";
-	}
+//	@RequestMapping(path = { "/", "index.do" })
+//	public String home(Model model) {
+//		return "index";
+//	}
 
 	@RequestMapping(path = "loginButton.do", method = RequestMethod.GET)
 	public String goToLoginFrom(HttpSession session) {
@@ -53,23 +53,23 @@ public class UserController {
 		return "index";
 	}
 
-	@RequestMapping("searchKeyword.do")
-	public String searchByKeyword(Model model, String keyword) {
-		List<PizzaJoint> pizzajoints = userDao.findPizzaJoint(keyword);
-		if(pizzajoints.size() > 0) {
-		model.addAttribute("results", pizzajoints);
-		return "result";
-		}else {
-			return "noResults";
-		}
-	}
-	@RequestMapping("singleResult.do")
-	public String singleResult(Model model, int id) {
-		PizzaJoint pizzaJoint = null;
-		pizzaJoint = userDao.findSinglePizzaJoint(id);
-		model.addAttribute("pizzaJoint", pizzaJoint);
-			return "pizzaJointPage";
-		}
+//	@RequestMapping("searchKeyword.do")
+//	public String searchByKeyword(Model model, String keyword) {
+//		List<PizzaJoint> pizzajoints = userDao.findPizzaJoint(keyword);
+//		if(pizzajoints.size() > 0) {
+//		model.addAttribute("results", pizzajoints);
+//		return "result";
+//		}else {
+//			return "noResults";
+//		}
+//	}
+//	@RequestMapping("singleResult.do")
+//	public String singleResult(Model model, int id) {
+//		PizzaJoint pizzaJoint = null;
+//		pizzaJoint = userDao.findSinglePizzaJoint(id);
+//		model.addAttribute("pizzaJoint", pizzaJoint);
+//			return "pizzaJointPage";
+//		}
 	
 	@RequestMapping("createAccountPage.do")
 	public String createAccountPage(Model model) {

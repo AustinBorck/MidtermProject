@@ -93,5 +93,8 @@ public class UserDaoImpl implements UserDAO {
 
 		return successfulDeac;
 	}
-
+	@Override
+	public User findUsername(int id) {
+			return em.find(User.class, id);
+	}
 }
