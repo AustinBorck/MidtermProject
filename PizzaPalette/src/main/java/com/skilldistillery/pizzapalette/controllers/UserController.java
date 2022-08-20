@@ -79,7 +79,6 @@ public class UserController {
 	
 	@RequestMapping(path = "createAccount.do", method = RequestMethod.POST)
 	public String createAccount(Model model, String username, String password, String firstname, String lastname) {
-		List<User> allUsers = userDao.findAllUsers();
 		User user = new User();
 		user.setEnabled(true);
 		user.setUsername(username);
@@ -87,19 +86,17 @@ public class UserController {
 		user.setFirstName(firstname);
 		user.setLastName(lastname);
 		user.setRole("User");
-		if(allUsers.contains(user)) {
-			return "accountExists";
-		}
-		for (User user1 : allUsers) {
-			if(user1.getUsername() == user.getUsername()) {
-				return "userNameTaken";
-			}
-		}
 		
-		userDao.addUser(user);
+		try {
+			userDao.addUser(user);
+		} catch (Exception e) {
+			return "userNameTaken";
+		}
 		return "loginPage";
 		
 	}
+	
+}
 	
 	
 	
@@ -119,4 +116,3 @@ public class UserController {
 	
 	
 	
-}
