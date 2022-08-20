@@ -112,7 +112,13 @@ public class UserController {
 		return "accountPage";
 	}
 	
-	
+	@RequestMapping(path = "deactivateAccount.do", method = RequestMethod.POST)
+	public String deactivate(Model model, int deactivateAccount, HttpSession session) {
+		User user = userDao.findUsername(deactivateAccount);
+		session.removeAttribute("loggedInUser");
+		userDao.deactivateUser(deactivateAccount);
+		return "index";
+	}
 	
 }
 	

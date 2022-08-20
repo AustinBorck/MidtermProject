@@ -25,5 +25,9 @@
 	<input type="hidden" value="${loggedInUser.id}" name="updateAccount"/>
 	<input type="submit" value="Update Account"/>
 	</form>
+	<form action="deactivateAccount.do">
+	<input type="hidden" value="${loggedInUser.id}" name="deactivateAccount"/>
+	<input type="submit" value="Deactivate Account"/>
+	</form>
 </body>
 </html>
