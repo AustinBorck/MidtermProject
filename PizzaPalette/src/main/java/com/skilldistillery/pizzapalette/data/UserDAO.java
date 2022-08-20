@@ -34,6 +34,7 @@ public interface UserDAO {
 	
 	public Review addReview(Review review);
 	
+	public List<User> findAllUsers();
 	
 	public boolean deactivateReview(int id);
 	

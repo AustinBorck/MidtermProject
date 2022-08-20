@@ -146,4 +146,11 @@ public class UserDaoImpl implements UserDAO {
 		return successfulDeac;
 	}
 
+	@Override
+	public List<User> findAllUsers() {
+		String jpql = "SELECT u FROM User u";
+		return em.createQuery(jpql, User.class).getResultList();
+	}
+
+	
 }

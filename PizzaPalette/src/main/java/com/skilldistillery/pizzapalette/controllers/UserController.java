@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.pizzapalette.data.UserDAO;
+import com.skilldistillery.pizzapalette.entities.Address;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.User;
 
@@ -72,14 +73,37 @@ public class UserController {
 	
 	@RequestMapping("createAccountPage.do")
 	public String createAccountPage(Model model) {
-		return "createAcccount";
+		return "createAccount";
+	}
+	
+	
+	@RequestMapping(path = "createAccount.do", method = RequestMethod.POST)
+	public String createAccount(Model model, String username, String password, String firstname, String lastname) {
+		List<User> allUsers = userDao.findAllUsers();
+		User user = new User();
+		user.setEnabled(true);
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setFirstName(firstname);
+		user.setLastName(lastname);
+		user.setRole("User");
+		if(allUsers.contains(user)) {
+			return "accountExists";
+		}
+		for (User user1 : allUsers) {
+			if(user1.getUsername() == user.getUsername()) {
+				return "userNameTaken";
+			}
+		}
+		
+		userDao.addUser(user);
+		return "loginPage";
+		
 	}
 	
 	
 	
-	
-	
-	
+
 	
 	
 	
