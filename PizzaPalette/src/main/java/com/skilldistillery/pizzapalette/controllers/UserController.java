@@ -30,7 +30,7 @@ public class UserController {
 	public String goToLoginFrom(HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
-			return "accountPage";
+			return "userHome";
 		} else {
 			return "loginPage";
 		}
@@ -43,7 +43,7 @@ public class UserController {
 			return "loginPage";
 		} else {
 			session.setAttribute("loggedInUser", user);
-			return "accountPage";
+			return "userHome";
 		}
 	}
 
@@ -73,7 +73,7 @@ public class UserController {
 	
 	@RequestMapping("createAccountPage.do")
 	public String createAccountPage(Model model) {
-		return "createAccount";
+		return "createUser";
 	}
 	
 	
@@ -99,7 +99,7 @@ public class UserController {
 	@RequestMapping(path = "updateAccountPage.do")
 	public String updateAccountButton(Model model, int updateAccount) {
 		model.addAttribute("user", userDao.findUsername(updateAccount));
-		return "updateAccount";
+		return "updateUser";
 	}
 	
 	@RequestMapping(path = "update.do", method = RequestMethod.POST)
@@ -109,7 +109,7 @@ public class UserController {
 		updatedUser = userDao.findUsername(updateAccount);
 		session.setAttribute("loggedInUser", updatedUser);
 
-		return "accountPage";
+		return "userHome";
 	}
 	
 	@RequestMapping(path = "deactivateAccount.do", method = RequestMethod.POST)

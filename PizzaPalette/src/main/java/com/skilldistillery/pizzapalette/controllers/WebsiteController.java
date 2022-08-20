@@ -51,9 +51,9 @@ public class WebsiteController {
 		List<PizzaJoint> pizzajoints = websiteDao.findPizzaJoint(keyword);
 		if(pizzajoints.size() > 0) {
 		model.addAttribute("results", pizzajoints);
-		return "result";
+		return "restaurantResults";
 		}else {
-			return "noResults";
+			return "noRestaurantResults";
 		}
 	}
 	
