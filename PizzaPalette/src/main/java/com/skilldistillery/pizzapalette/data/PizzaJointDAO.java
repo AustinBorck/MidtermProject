@@ -8,20 +8,14 @@ import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.Review;
 import com.skilldistillery.pizzapalette.entities.User;
 
-public interface UserDAO {
+public interface PizzaJointDAO {
 	
-	public List<User> findAllUsers();
+	public PizzaJoint findSinglePizzaJoint(int id);
 	
-	public User login(String username, String password);
+	public PizzaJoint addPizzaJoint(PizzaJoint name);
 	
-	public User addUser(User username);
+	public PizzaJoint editPizzaJoint(int id, PizzaJoint pizzaJoint);
 	
-	public User editUser(int id, User user);
-
-	public boolean deactivateUser(int id);
-	
-	public Review addReview(Review review);
-	
-	public boolean deactivateReview(int id);
+	public boolean deactivatePizzaJoint(int id);
 	
 }
