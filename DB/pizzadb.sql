@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
-  UNIQUE INDEX `password_UNIQUE` (`password` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_user_address1`
     FOREIGN KEY (`address_id`)
