@@ -18,4 +18,6 @@ public interface PizzaJointDAO {
 	
 	public boolean deactivatePizzaJoint(int id);
 	
+	public List<Review> findPizzaJointReviews(int id);
+	
 }

@@ -61,4 +61,11 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		return successfulDeac;
 	}
 
+	@Override
+	public List<Review> findPizzaJointReviews(int id) {
+		PizzaJoint pizzaJoint = em.find(PizzaJoint.class, id);
+		List<Review> reviews = pizzaJoint.getReviews();;
+		return reviews;
+	}
+
 }

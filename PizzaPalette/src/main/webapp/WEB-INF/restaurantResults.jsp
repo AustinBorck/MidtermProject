@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Books</title>
+<title>PizzaJoints</title>
 
 <jsp:include page="head.jsp" />
 

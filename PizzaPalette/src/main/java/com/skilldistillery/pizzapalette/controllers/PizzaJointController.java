@@ -27,6 +27,7 @@ public class PizzaJointController {
 		PizzaJoint pizzaJoint = null;
 		pizzaJoint = pizzaDao.findSinglePizzaJoint(id);
 		model.addAttribute("pizzaJoint", pizzaJoint);
+		model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(id));
 			return "pizzaJointPage";
 		}
 	
