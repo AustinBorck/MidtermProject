@@ -1,5 +1,8 @@
 package com.skilldistillery.pizzapalette.controllers;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.pizzapalette.data.PizzaJointDAO;
+import com.skilldistillery.pizzapalette.entities.Address;
+import com.skilldistillery.pizzapalette.entities.Attribute;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.User;
 
@@ -50,17 +55,26 @@ public class PizzaJointController {
 	
 	
 	@RequestMapping(path = "createPizzaJoint.do", method = RequestMethod.POST)
-	public String createAccount(Model model, String username, String password, String firstname, String lastname) {
-		User user = new User();
-		user.setEnabled(true);
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setFirstName(firstname);
-		user.setLastName(lastname);
-		user.setRole("User");
+	public String createAccount(Model model, String name, String imageUrl, String website, String description, String street, String state, String city, String phone,
+			String zip, List<Attribute> attributes) {
+		PizzaJoint pizzaJoint = new PizzaJoint();
+		Address newAddy = new Address();
+		newAddy.setStreet(street);
+		newAddy.setCity(city);
+		newAddy.setState(state);
+		newAddy.setZip(zip);
+		newAddy.setPhoneNumber(phone);
+		pizzaJoint.setAddress(newAddy);
+		pizzaJoint.setName(name);
+		pizzaJoint.setApproved(true);
+		pizzaJoint.setAttributes(attributes);
+		pizzaJoint.setImage(imageUrl);
+		pizzaJoint.setWebsite(website);
+		pizzaJoint.setDescription(description);
+		pizzaJoint.setDateAdded(LocalDateTime.now());
 		
 		try {
-			pizzaDao.addUser(user);
+			pizzaDao.addPizzaJoint(pizzaJoint);
 		} catch (Exception e) {
 			return "pizzaJointAlreadyExists";
 		}
