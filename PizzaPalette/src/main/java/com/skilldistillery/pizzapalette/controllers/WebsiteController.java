@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.skilldistillery.pizzapalette.data.PizzaJointDAO;
 import com.skilldistillery.pizzapalette.data.WebsiteDAO;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.User;
@@ -19,9 +20,14 @@ public class WebsiteController {
 
 	@Autowired
 	private WebsiteDAO websiteDao;
-
+	
+	@Autowired 
+	private PizzaJointDAO pizzaJointDao;
+	
+	
 	@RequestMapping(path = { "/", "index.do" })
 	public String home(Model model) {
+		model.addAttribute("top", pizzaJointDao.topRated(3));
 		return "index";
 	}
 

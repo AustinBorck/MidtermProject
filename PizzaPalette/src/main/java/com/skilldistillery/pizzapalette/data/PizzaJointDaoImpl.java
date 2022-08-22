@@ -2,6 +2,7 @@ package com.skilldistillery.pizzapalette.data;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -87,7 +88,23 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 	}
 
 	
-	
+	public List<PizzaJoint> topThree() {
+		String jpql = "SELECT p FROM PizzaJoint p";
+		return em.createQuery(jpql, PizzaJoint.class).getResultList();
+	}
+
+	@Override
+	public List<PizzaJoint> topRated(int howMany) {
+
+		String jpql = "SELECT p, AVG(r.rating)  FROM PizzaJoint p JOIN p.reviews r GROUP BY p ORDER BY AVG(r.rating) DESC ";
+		List<Object[]> result = em.createQuery(jpql, Object[].class).getResultList();
+		List<PizzaJoint> joints = new ArrayList<>();
+		for (int i = 0; i < result.size() && i< howMany; i++) {
+			joints.add((PizzaJoint) result.get(i)[0]);
+		}
+		return joints;
+				
+	}	
 	
 	
 	

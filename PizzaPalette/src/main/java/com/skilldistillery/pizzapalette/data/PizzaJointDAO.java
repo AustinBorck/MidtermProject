@@ -23,4 +23,7 @@ public interface PizzaJointDAO {
 	
 	public void addReview (String comments, int pizzaJointId, int userId, int userRating, String imageUrl);
 	
+	public List<PizzaJoint> topRated (int howMany);
+		
+	
 }
