@@ -40,48 +40,60 @@ public class PizzaJointController {
 				model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaJointId));
 				return "pizzaJointPage";
 			}
-				
 		
 	}
 	
-//	@RequestMapping("createAccountPage.do")
-//	public String createAccountPage(Model model) {
-//		return "createAccount";
-//	}
+	@RequestMapping("createPizza.do")
+	public String createPizzaJoint(Model model) {
+		return "createPizzaJoint";
+	}
 	
 	
-//	@RequestMapping(path = "createAccount.do", method = RequestMethod.POST)
-//	public String createAccount(Model model, String username, String password, String firstname, String lastname) {
-//		PizzaJoint pizzaJoint = new PizzaJoint();
-//		pizzaJoint.setEnabled(true);
-//		pizzaJoint.setUsername(username);
-//		pizzaJoint.setPassword(password);
-//		pizzaJoint.setFirstName(firstname);
-//		pizzaJoint.setLastName(lastname);
-//		pizzaJoint.setRole("User");
-//		
-//		try {
-//			userDao.addUser(user);
-//		} catch (Exception e) {
-//			return "userNameTaken";
-//		}
-//		return "loginPage";
-//		
-//	}
-//	
+	@RequestMapping(path = "createPizzaJoint.do", method = RequestMethod.POST)
+	public String createAccount(Model model, String username, String password, String firstname, String lastname) {
+		User user = new User();
+		user.setEnabled(true);
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setFirstName(firstname);
+		user.setLastName(lastname);
+		user.setRole("User");
+		
+		try {
+			pizzaDao.addUser(user);
+		} catch (Exception e) {
+			return "pizzaJointAlreadyExists";
+		}
+		return "index";
+	}
+	
 //	@RequestMapping(path = "updateAccountPage.do")
 //	public String updateAccountButton(Model model, int updateAccount) {
 //		model.addAttribute("user", userDao.findUsername(updateAccount));
-//		return "updateAccount";
+//		return "updateUser";
 //	}
 //	
 //	@RequestMapping(path = "update.do", method = RequestMethod.POST)
-//	public String update(Model model, int updateAccount, User updatedUser) {
+//	public String update(Model model, int updateAccount, User updatedUser, HttpSession session) {
 //		model.addAttribute("loggedInUser", userDao.editUser(updateAccount, updatedUser));
-//		return "accountPage";
+//		session.removeAttribute("loggedInUser");
+//		updatedUser = userDao.findUsername(updateAccount);
+//		session.setAttribute("loggedInUser", updatedUser);
+//
+//		return "userHome";
 //	}
-	
-	
+//	
+//	@RequestMapping(path = "deactivateAccount.do", method = RequestMethod.POST)
+//	public String deactivate(Model model, int deactivateAccount, HttpSession session) {
+//		User user = userDao.findUsername(deactivateAccount);
+//		session.removeAttribute("loggedInUser");
+//		userDao.deactivateUser(deactivateAccount);
+//		if(user.getRole().contains("admin")) {
+//			return "allUsers";
+//		} else {
+//		return "index";
+//		}
+//	}
 	
 }
 	
