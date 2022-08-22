@@ -24,9 +24,9 @@
 <form action="addReview.do" method="POST">
 Comments: <input type="text" name="comments"><br>
 Rating: <input type="number" name="userRating" min="0" step="1" max="5"><br>
-Photos: <input type="image" name="userPicture">
+Photos: <input type="text" name="imageUrl">
 <input type="hidden" name="pizzaJointId" value="${pizzaJoint.id}">
-<input type="hidden" name="userId" value="${user.id}">
+<input type="hidden" name="userId" value="${loggedInUser.id}">
 <input type="submit" value="Add Review">
 </form>
 <jsp:include page="footer.jsp" />

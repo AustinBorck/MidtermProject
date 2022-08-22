@@ -69,17 +69,20 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		List<Review> reviews = pizzaJoint.getReviews();;
 		return reviews;
 	}
-	
-	public void addReview (String comments, int pizzaJointId, int userId, int userRating, ReviewImage userPicUrl) {
-		Review newReview = null;
-		List<ReviewImage> reviewImages = null;
-		reviewImages.add(userPicUrl);
+	@Override
+	public void addReview (String comments, int pizzaJointId, int userId, int userRating, String userPicUrl) {
+		Review newReview = new Review();
+		ReviewImage ri = new ReviewImage();;
+		ri.setImageUrl(userPicUrl);
+//		reviewImages.add(userPicUrl);
 		newReview.setComments(comments);
-		newReview.setReviewImages(null);
+		newReview.setPizzaJoint(em.find(PizzaJoint.class, pizzaJointId));
+//		newReview.setReviewImages(null);
+//		newReview.
 		newReview.setRating(userRating);
 		newReview.setReviewDate(LocalDateTime.now());
 		newReview.setUserReview(em.find(User.class, userId));
-		
+		em.persist(newReview);
 		
 	}
 
