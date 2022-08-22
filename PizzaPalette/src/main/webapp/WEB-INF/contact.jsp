@@ -13,8 +13,19 @@
 
 <jsp:include page="navBar.jsp"></jsp:include>
 
+<h1>Contact Us</h1>
 
+<form action="contacted.do" method="POST">
+					
+					<label for="message">Message:</label> 
+					<input type="text" id="contact" name="lname">
+					<br><br>
+					
+					<input class="button" type="submit" value="Send message" />
 
+				</form>
+
+<br>
 <jsp:include page="footer.jsp" />
 <jsp:include page="foot.jsp" />
 
