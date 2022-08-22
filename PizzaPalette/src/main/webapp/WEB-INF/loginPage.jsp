@@ -23,7 +23,7 @@ Password: <input type="password" name="password">
 New to PizzaPalette? <input type="submit"  value="Create an Account">
 </form>
 
-
+	<jsp:include page="footer.jsp" />
 	<jsp:include page="foot.jsp" />
 
 </body>
