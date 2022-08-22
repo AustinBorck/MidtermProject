@@ -29,10 +29,13 @@ public class UserController {
 	@RequestMapping(path = "loginButton.do", method = RequestMethod.GET)
 	public String goToLoginFrom(HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser");
-		if (user != null) {
+		if (user != null && user.getRole().contains("admin")) {
+			return "adminAccountPage";
+		} else if (user != null){
 			return "userHome";
-		} else {
+		}else {
 			return "loginPage";
+			
 		}
 	}
 
@@ -43,7 +46,12 @@ public class UserController {
 			return "loginPage";
 		} else {
 			session.setAttribute("loggedInUser", user);
+			
+			if(user.getRole().contains("admin")) {
+				return "adminAccountPage";
+			}else {
 			return "userHome";
+			}
 		}
 	}
 
@@ -117,7 +125,17 @@ public class UserController {
 		User user = userDao.findUsername(deactivateAccount);
 		session.removeAttribute("loggedInUser");
 		userDao.deactivateUser(deactivateAccount);
+		if(user.getRole().contains("admin")) {
+			return "allUsers";
+		} else {
 		return "index";
+		}
+	}
+	
+	@RequestMapping(path="getAllUsers.do")
+	public String getAllUsers(Model model) {
+		model.addAttribute("user", userDao.findAllUsers());
+		return "allUsers";
 	}
 	
 }
