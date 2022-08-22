@@ -30,13 +30,13 @@ public class WebsiteDaoImpl implements WebsiteDAO {
 	@Override
 	public List<PizzaJoint> findPizzaJoint(String keyword) {
 		List<PizzaJoint> pizzaJointList = new ArrayList<>();
-		String jpql = "SELECT DISTINCT p FROM PizzaJoint p JOIN p.attributes att WHERE p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR att.name LIKE :name AND p.approved = true";
+		String jpql = "SELECT DISTINCT p FROM PizzaJoint p LEFT JOIN p.attributes att WHERE (p.name LIKE :name OR p.address.city LIKE :city OR p.address.state LIKE :state OR p.address.zip LIKE :zip OR att.name LIKE :attr) AND p.approved = true";
 		pizzaJointList = em.createQuery(jpql, PizzaJoint.class)
 					 .setParameter("name", "%" + keyword + "%") 
 					 .setParameter("city", "%" + keyword + "%")
 					 .setParameter("state", "%" + keyword + "%")
 					 .setParameter("zip", "%" + keyword + "%")
-					 .setParameter("name", "%" + keyword + "%")
+					 .setParameter("attr", "%" + keyword + "%")
 					 .getResultList();
 		return pizzaJointList;
 	}
