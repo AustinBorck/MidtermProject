@@ -2,6 +2,10 @@ package com.skilldistillery.pizzapalette.data;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.ui.Model;
+
 import com.skilldistillery.pizzapalette.entities.Address;
 import com.skilldistillery.pizzapalette.entities.Attribute;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
@@ -24,6 +28,11 @@ public interface PizzaJointDAO {
 	public void addReview (String comments, int pizzaJointId, int userId, int userRating, String imageUrl);
 	
 	public List<PizzaJoint> topRated (int howMany);
+	
+	public boolean reactivatePizzaJoint(int id);
+	
+	public PizzaJoint updatePizzaJoint(HttpSession session, Model model, int id, String name, String imageUrl, String website, String description, String street, String state, String city, String phone,
+			String zip, String[] attributes);
 		
 	
 }

@@ -89,33 +89,45 @@ public class PizzaJointController {
 		return "index";
 	}
 	
-//	@RequestMapping(path = "updateAccountPage.do")
-//	public String updateAccountButton(Model model, int updateAccount) {
-//		model.addAttribute("user", userDao.findUsername(updateAccount));
-//		return "updateUser";
-//	}
-//	
-//	@RequestMapping(path = "update.do", method = RequestMethod.POST)
-//	public String update(Model model, int updateAccount, User updatedUser, HttpSession session) {
-//		model.addAttribute("loggedInUser", userDao.editUser(updateAccount, updatedUser));
-//		session.removeAttribute("loggedInUser");
-//		updatedUser = userDao.findUsername(updateAccount);
-//		session.setAttribute("loggedInUser", updatedUser);
-//
-//		return "userHome";
-//	}
-//	
-//	@RequestMapping(path = "deactivateAccount.do", method = RequestMethod.POST)
-//	public String deactivate(Model model, int deactivateAccount, HttpSession session) {
-//		User user = userDao.findUsername(deactivateAccount);
-//		session.removeAttribute("loggedInUser");
-//		userDao.deactivateUser(deactivateAccount);
-//		if(user.getRole().contains("admin")) {
-//			return "allUsers";
-//		} else {
-//		return "index";
-//		}
-//	}
+	@RequestMapping(path= "pizzaJointById.do")
+	public String getPizzaPageById(Model model, int pizzaJointId) {
+		PizzaJoint pizzaJoint = pizzaDao.findSinglePizzaJoint(pizzaJointId);
+		model.addAttribute("pizzaJoint", pizzaJoint);
+		model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaJointId));
+		return "adminPizzaJointPage";
+	}
+	
+	@RequestMapping(path="deactivatePizzajoint.do", method=RequestMethod.POST)
+	public String deactivatePizzaJoint(Model model, int id) {
+		pizzaDao.deactivatePizzaJoint(id);
+		return "index";
+	}
+	@RequestMapping(path="reactivatePizzajoint.do", method=RequestMethod.POST)
+	public String reactivatePizzaJoint(Model model, int id) {
+		pizzaDao.deactivatePizzaJoint(id);
+		return "index";
+	}
+	@RequestMapping(path="updatePizzaJoint.do")
+	public String updatePizzaJoint (Model model, int updatePizzaJoint) {
+		PizzaJoint updateMe = pizzaDao.findSinglePizzaJoint(updatePizzaJoint);
+		model.addAttribute("pizzaJoint", updateMe);
+		return "updatePizzaJoint";
+	}
+	
+	
+	
+	@RequestMapping(path = "updatePizza.do", method = RequestMethod.POST)
+	public String updateThisPizzaJoint(HttpSession session, Model model, int id, String name, String imageUrl, String website, String description, String street, String state, String city, String phone,
+			String zip, String[] attributes) {
+		try {
+			pizzaDao.updatePizzaJoint(session, model, id, name, imageUrl, website, description, street, state, city, phone,
+					zip, attributes);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "pizzaJointAlreadyExists";
+		}
+		return "index";
+	}
 	
 }
 	

@@ -6,11 +6,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.skilldistillery.pizzapalette.entities.Address;
+import com.skilldistillery.pizzapalette.entities.Attribute;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.Review;
 import com.skilldistillery.pizzapalette.entities.ReviewImage;
@@ -22,6 +25,36 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Override
+	public PizzaJoint updatePizzaJoint(HttpSession session, Model model, int id, String name, String imageUrl, String website, String description, String street, String state, String city, String phone,
+			String zip, String[] attributes) {
+		PizzaJoint pizzaJoint = em.find(PizzaJoint.class, id);
+		List<Attribute> newAtts = new ArrayList<>();
+		for (String ids : attributes) {
+			Attribute att = new Attribute();
+			att.setId(Integer.parseInt(ids));
+		}
+		Address newAddy = new Address();
+		newAddy.setStreet(street);
+		newAddy.setCity(city);
+		newAddy.setState(state);
+		newAddy.setZip(zip);
+		newAddy.setPhoneNumber(phone);
+		pizzaJoint.setAddress(newAddy);
+		pizzaJoint.setName(name);
+		pizzaJoint.setApproved(true);
+		pizzaJoint.setAttributes(newAtts);
+		pizzaJoint.setImage(imageUrl);
+		pizzaJoint.setWebsite(website);
+		pizzaJoint.setDescription(description);
+		pizzaJoint.setDateAdded(LocalDateTime.now());
+		User user = (User) session.getAttribute("loggedInUser");
+		pizzaJoint.setAddedByUser(user);
+		em.persist(newAddy);
+		em.persist(pizzaJoint);
+		return pizzaJoint;
+	}
 
 	@Override
 	public PizzaJoint findSinglePizzaJoint(int id){
@@ -62,6 +95,18 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 
 		return successfulDeac;
 	}
+	@Override
+	public boolean reactivatePizzaJoint(int id) {
+		boolean successfulReac = false;
+		PizzaJoint deacPizzaJoint = em.find(PizzaJoint.class, id);
+		
+		if (deacPizzaJoint != null) {
+			deacPizzaJoint.setApproved(true);
+			successfulReac = true;
+		}
+		
+		return successfulReac;
+	}
 
 	@Override
 	public List<Review> findPizzaJointReviews(int id) {
@@ -74,11 +119,8 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		Review newReview = new Review();
 		ReviewImage ri = new ReviewImage();;
 		ri.setImageUrl(userPicUrl);
-//		reviewImages.add(userPicUrl);
 		newReview.setComments(comments);
 		newReview.setPizzaJoint(em.find(PizzaJoint.class, pizzaJointId));
-//		newReview.setReviewImages(null);
-//		newReview.
 		newReview.setRating(userRating);
 		newReview.setReviewDate(LocalDateTime.now());
 		newReview.setUserReview(em.find(User.class, userId));

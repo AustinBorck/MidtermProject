@@ -27,6 +27,12 @@
 		<input type="submit" value="Logout">
 	</form>
 
+
+	<form action="pizzaJointById.do" method="GET">
+		Search for a PizzaJoint by ID: <input type="text" name="pizzaJointId">
+		<input type="submit" value="Search">
+	</form>
+
 	<form action="updateAccountPage.do">
 	<input type="hidden" value="${loggedInUser.id}" name="updateAccount"/>
 	<input type="submit" value="Update Account"/>
