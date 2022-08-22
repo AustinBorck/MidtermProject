@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="navBar.jsp"></jsp:include>
 
-	<h2>ADMIN: ${loggedInUser.firstName}</h2>
+	<h2>ADMIN USER: ${loggedInUser.firstName}</h2>
 
 	Username: ${loggedInUser.username}<br>
 	Password: ${loggedInUser.password}<br>
