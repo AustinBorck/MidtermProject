@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>PizzaJoint</title>
+<link rel="stylesheet" href="../css/myStylesheet.css">
 <jsp:include page="head.jsp" />
 </head>
 <body>
@@ -13,27 +14,28 @@
 
 	<h2>${pizzaJoint.name}</h2>
 
-	<div style='float: left'>
-		<img src="${pizzaJoint.image}">
-	</div>
-	<div style='float: right'>
-		<table border="1" width="44" style="margin-left: 30%; float: top;">
-			<tr>
-				<td>
+	<div class="image">
+		<img src="${pizzaJoint.image}" height= "400" style="width: 50%">
+</div>
+
+	<table id="table-1">
+       <tbody>
+			<tr class="row-1">
+				<td class="column-1">
 					<p>${pizzaJoint.description}</p>
 
 				</td>
 
-			</tr>
-			<tr>
-				<td><c:forEach var="att" items="${pizzaJoint.attributes}">
- ${att.name},
-</c:forEach></td>
+	</tr>
+			<tr class="row-2">
+				<td class="column-2"><c:forEach var="att" items="${pizzaJoint.attributes}">
+ 				${att.name},
+				</c:forEach></td>
 
 
 			</tr>
+			</tbody>
 		</table>
-	</div>
 
 	<%-- 
 <img alt="${pizzaJoint.name}" src="${pizzaJoint.image}" height= "400" style="width: 50%" >

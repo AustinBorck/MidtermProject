@@ -1,3 +1,19 @@
 @charset "UTF-8";
 
+.image {
+ height: auto;
+ width: 250px;
+ float:right;
+}
 
+#table-1, #table-2, #table-3 {
+    width: 40%;
+    font-weight: bold;
+  
+}
+
+#table-1 .column-1, #table-2 .column-1, #table-3 .column-1 {
+    background-color: #000000;
+    color: #fff;
+    width: 40%;
+}
