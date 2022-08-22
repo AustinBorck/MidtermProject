@@ -36,15 +36,14 @@ public class WebsiteController {
 		}
 	}
 	
-
-	@RequestMapping(path = {"contacted.do" })
-	public String contacted(Model model) {
-		return "index";
-	}
-	
 	@RequestMapping(path = {"contact.do" })
 	public String contact(Model model) {
 		return "contact";
+	}
+	
+	@RequestMapping(path = {"contacted.do" })
+	public String contacted(Model model) {
+		return "index";
 	}
 	
 	@RequestMapping(path = {"about.do" })
