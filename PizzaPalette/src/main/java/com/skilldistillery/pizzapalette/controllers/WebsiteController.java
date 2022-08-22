@@ -25,27 +25,6 @@ public class WebsiteController {
 		return "index";
 	}
 
-//	@RequestMapping(path = "loginButton.do", method = RequestMethod.GET)
-//	public String goToLoginFrom(HttpSession session) {
-//		User user = (User) session.getAttribute("loggedInUser");
-//		if (user != null) {
-//			return "accountPage";
-//		} else {
-//			return "loginPage";
-//		}
-//	}
-
-//	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-//	public String logInUser(HttpSession session, Model model, String username, String password) {
-//		User user = websiteDao.login(username, password);
-//		if (user == null) {
-//			return "loginPage";
-//		} else {
-//			session.setAttribute("loggedInUser", user);
-//			return "accountPage";
-//		}
-//	}
-
 	@RequestMapping("searchKeyword.do")
 	public String searchByKeyword(Model model, String keyword) {
 		List<PizzaJoint> pizzajoints = websiteDao.findPizzaJoint(keyword);
@@ -57,7 +36,17 @@ public class WebsiteController {
 		}
 	}
 	
-	@RequestMapping(path = { "/", "about.do" })
+	@RequestMapping(path = {"contacted.do" })
+	public String contacted(Model model) {
+		return "index";
+	}
+	
+	@RequestMapping(path = {"contact.do" })
+	public String contact(Model model) {
+		return "contact";
+	}
+	
+	@RequestMapping(path = {"about.do" })
 	public String about(Model model) {
 		return "about";
 	}
