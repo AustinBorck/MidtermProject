@@ -82,7 +82,7 @@ public class PizzaJointController {
 		User user = (User) session.getAttribute("loggedInUser");
 		pizzaJoint.setAddedByUser(user);
 		try {
-			pizzaDao.addPizzaJoint(pizzaJoint);
+			pizzaDao.addPizzaJoint(pizzaJoint, newAddy);
 		} catch (Exception e) {
 			return "pizzaJointAlreadyExists";
 		}

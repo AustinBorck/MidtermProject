@@ -2,8 +2,6 @@ package com.skilldistillery.pizzapalette.data;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,6 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.pizzapalette.entities.Address;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.Review;
 import com.skilldistillery.pizzapalette.entities.ReviewImage;
@@ -30,7 +29,8 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 	}
 	
 	@Override
-	public PizzaJoint addPizzaJoint(PizzaJoint name) {
+	public PizzaJoint addPizzaJoint(PizzaJoint name, Address newAddy) {
+		em.persist(newAddy);
 		em.persist(name);
 		return name;
 	}

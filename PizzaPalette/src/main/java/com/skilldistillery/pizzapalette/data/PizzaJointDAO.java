@@ -13,7 +13,7 @@ public interface PizzaJointDAO {
 	
 	public PizzaJoint findSinglePizzaJoint(int id);
 	
-	public PizzaJoint addPizzaJoint(PizzaJoint name);
+	public PizzaJoint addPizzaJoint(PizzaJoint name, Address newAddy);
 	
 	public PizzaJoint editPizzaJoint(int id, PizzaJoint pizzaJoint);
 	

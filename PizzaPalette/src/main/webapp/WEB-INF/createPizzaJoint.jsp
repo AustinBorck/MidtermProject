@@ -19,22 +19,22 @@
 		Delivery: <input type="checkbox" name="attributes" value="1">
 		Dine-in: <input type="checkbox" name="attributes" value="2">
 		Carry-out: <input type="checkbox" name="attributes" value="3">
-		New York style: <input type="checkbox" name="attributes" value="New York style">
-		Brooklyn style: <input type="checkbox" name="attributes" value="Brooklyn style">
-		<br>Chicago style: <input type="checkbox" name="attributes" value="Chicago style">
-		California style: <input type="checkbox" name="attributes" value="California style">
-		Wood-fired: <input type="checkbox" name="attributes" value="Wood-fired">
-		Deep-dish: <input type="checkbox" name="attributes" value="Deep-dish">
-		Sicilian style: <input type="checkbox" name="attributes" value="Sicilian style">
-		Thin-crust: <input type="checkbox" name="attributes" value="Thin-crust">
-		<br>Detriot style: <input type="checkbox" name="attributes" value="Detriot style">
-		Neapolitan style: <input type="checkbox" name="attributes" value="Neapolitan style">
-		Vegan options: <input type="checkbox" name="attributes" value="Vegan options">
-		Gluten-free options: <input type="checkbox" name="attributes" value="Gluten-free options">
-		<br>Kosher options: <input type="checkbox" name="attributes" value="Kosher options">
-		Keto options: <input type="checkbox" name="attributes" value="Keto options">
-		Take and bake: <input type="checkbox" name="attributes" value="Take & bake">
-		Colorado style: <input type="checkbox" name="attributes" value="Colorado style">
+		New York style: <input type="checkbox" name="attributes" value="4">
+		Brooklyn style: <input type="checkbox" name="attributes" value="5">
+		<br>Chicago style: <input type="checkbox" name="attributes" value="6">
+		California style: <input type="checkbox" name="attributes" value="7">
+		Wood-fired: <input type="checkbox" name="attributes" value="8">
+		Deep-dish: <input type="checkbox" name="attributes" value="9">
+		Sicilian style: <input type="checkbox" name="attributes" value="10">
+		Thin-crust: <input type="checkbox" name="attributes" value="11">
+		<br>Detriot style: <input type="checkbox" name="attributes" value="12">
+		Neapolitan style: <input type="checkbox" name="attributes" value="13">
+		Vegan options: <input type="checkbox" name="attributes" value="14">
+		Gluten-free options: <input type="checkbox" name="attributes" value="15">
+		<br>Kosher options: <input type="checkbox" name="attributes" value="16">
+		Keto options: <input type="checkbox" name="attributes" value="17">
+		Take and bake: <input type="checkbox" name="attributes" value="18">
+		Colorado style: <input type="checkbox" name="attributes" value="19">
 		
 		<br>Street: <input type="text" name="street" required><br>
 		City: <input type="text" name="city" required><br>
