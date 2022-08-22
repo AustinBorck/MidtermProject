@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>PizzaJoint</title>
+<jsp:include page="head.jsp" />
 </head>
 <body>
 	<jsp:include page="navBar.jsp"></jsp:include>
@@ -16,9 +17,20 @@
 
 <li>${review.userReview.username}</li>
 <li>${review.comments}</li>
+<li>${review.rating}</li>
+<li>${review.reviewDate}</li>
 </ul>
 	</c:forEach>
-
+<form action="addReview.do" method="POST">
+Comments: <input type="text" name="comments"><br>
+Rating: <input type="number" name="userRating" min="0" step="1" max="5"><br>
+Photos: <input type="image" name="userPicture">
+<input type="hidden" name="pizzaJointId" value="${pizzaJoint.id}">
+<input type="hidden" name="userId" value="${user.id}">
+<input type="submit" value="Add Review">
+</form>
+<jsp:include page="footer.jsp" />
+<jsp:include page="foot.jsp" />
 </body>
 </html>
 

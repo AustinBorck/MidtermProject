@@ -1,5 +1,6 @@
 package com.skilldistillery.pizzapalette.data;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.skilldistillery.pizzapalette.entities.Address;
 import com.skilldistillery.pizzapalette.entities.Attribute;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.Review;
+import com.skilldistillery.pizzapalette.entities.ReviewImage;
 import com.skilldistillery.pizzapalette.entities.User;
 
 @Service
@@ -67,5 +69,33 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		List<Review> reviews = pizzaJoint.getReviews();;
 		return reviews;
 	}
+	
+	public void addReview (String comments, int pizzaJointId, int userId, int userRating, ReviewImage userPicUrl) {
+		Review newReview = null;
+		List<ReviewImage> reviewImages = null;
+		reviewImages.add(userPicUrl);
+		newReview.setComments(comments);
+		newReview.setReviewImages(null);
+		newReview.setRating(userRating);
+		newReview.setReviewDate(LocalDateTime.now());
+		newReview.setUserReview(em.find(User.class, userId));
+		
+		
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

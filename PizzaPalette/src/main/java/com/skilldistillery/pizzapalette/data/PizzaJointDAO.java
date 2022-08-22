@@ -6,6 +6,7 @@ import com.skilldistillery.pizzapalette.entities.Address;
 import com.skilldistillery.pizzapalette.entities.Attribute;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.Review;
+import com.skilldistillery.pizzapalette.entities.ReviewImage;
 import com.skilldistillery.pizzapalette.entities.User;
 
 public interface PizzaJointDAO {
@@ -19,5 +20,7 @@ public interface PizzaJointDAO {
 	public boolean deactivatePizzaJoint(int id);
 	
 	public List<Review> findPizzaJointReviews(int id);
+	
+	public void addReview (String comments, int pizzaJointId, int userId, int userRating, ReviewImage userPicUrl);
 	
 }
