@@ -28,17 +28,20 @@ public class PizzaJointController {
 		}
 	
 	@RequestMapping(path = "addReview.do", method = RequestMethod.POST)
-	public String addReviewToPizzaJoint(HttpSession session, Model model, String comments, int pizzaJointId, int userId, int userRating, String imageUrl) {
-//		try {
-			User user = (User) session.getAttribute("loggedInUser");
-			pizzaDao.addReview(comments, pizzaJointId, userId, userRating, imageUrl);
-			PizzaJoint pizzaJoint = pizzaDao.findSinglePizzaJoint(pizzaJointId);
-			model.addAttribute("pizzaJoint", pizzaJoint);
-			model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaJointId));
-			return "pizzaJointPage";
-//		} catch (Exception e) {
-//			return "loginPage";
-//		}
+	public String addReviewToPizzaJoint(HttpSession session, Model model, String comments, int pizzaJointId, String userId, int userRating, String imageUrl) {
+			if(userId == "") {
+				return "loginPage";
+			}else {
+				int userID = Integer.parseInt(userId);
+				User user = (User) session.getAttribute("loggedInUser");
+				pizzaDao.addReview(comments, pizzaJointId, userID, userRating, imageUrl);
+				PizzaJoint pizzaJoint = pizzaDao.findSinglePizzaJoint(pizzaJointId);
+				model.addAttribute("pizzaJoint", pizzaJoint);
+				model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaJointId));
+				return "pizzaJointPage";
+			}
+				
+		
 	}
 	
 //	@RequestMapping("createAccountPage.do")
