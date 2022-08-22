@@ -21,6 +21,6 @@ public interface PizzaJointDAO {
 	
 	public List<Review> findPizzaJointReviews(int id);
 	
-	public void addReview (String comments, int pizzaJointId, int userId, int userRating, ReviewImage userPicUrl);
+	public void addReview (String comments, int pizzaJointId, int userId, int userRating, String imageUrl);
 	
 }

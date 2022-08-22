@@ -1,5 +1,7 @@
 package com.skilldistillery.pizzapalette.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.pizzapalette.data.PizzaJointDAO;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
-import com.skilldistillery.pizzapalette.entities.ReviewImage;
+import com.skilldistillery.pizzapalette.entities.User;
 
 @Controller
 public class PizzaJointController {
@@ -26,12 +28,17 @@ public class PizzaJointController {
 		}
 	
 	@RequestMapping(path = "addReview.do", method = RequestMethod.POST)
-	public String addReviewToPizzaJoint(Model model, String comments, int pizzaJointId, int userId, int userRating, ReviewImage userPicture) {
-		pizzaDao.addReview(comments, pizzaJointId, userId, userRating, userPicture);
-		PizzaJoint pizzaJoint = pizzaDao.findSinglePizzaJoint(pizzaJointId);
-		model.addAttribute("pizzaJoint", pizzaJoint);
-		model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaJointId));
-		return "pizzaJointPage";
+	public String addReviewToPizzaJoint(HttpSession session, Model model, String comments, int pizzaJointId, int userId, int userRating, String imageUrl) {
+//		try {
+			User user = (User) session.getAttribute("loggedInUser");
+			pizzaDao.addReview(comments, pizzaJointId, userId, userRating, imageUrl);
+			PizzaJoint pizzaJoint = pizzaDao.findSinglePizzaJoint(pizzaJointId);
+			model.addAttribute("pizzaJoint", pizzaJoint);
+			model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaJointId));
+			return "pizzaJointPage";
+//		} catch (Exception e) {
+//			return "loginPage";
+//		}
 	}
 	
 //	@RequestMapping("createAccountPage.do")

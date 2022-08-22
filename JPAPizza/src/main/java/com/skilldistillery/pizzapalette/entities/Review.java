@@ -1,6 +1,7 @@
 package com.skilldistillery.pizzapalette.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -44,6 +45,19 @@ public class Review {
 	private List<ReviewImage> reviewImages;
 	
 	////////////////////////////GENERATED//////////////////////
+	
+	public void addReviewImage(ReviewImage image) {
+		if (reviewImages == null) { reviewImages = new ArrayList<>(); }
+		if (! reviewImages.contains(image) ) {
+			reviewImages.add(image);
+		}
+	}
+	
+	public void removeReviewImage(ReviewImage image) {
+		if (reviewImages != null && reviewImages.contains(image)) {
+			reviewImages.remove(image);
+		}
+	}
 
 	public Review() {
 		super();
