@@ -10,7 +10,7 @@
 <title>PizzaPalette</title>
 
 <jsp:include page="head.jsp" />
-
+<link rel="stylesheet" href="css/myStylesheet.css">
 </head>
 
 
@@ -38,15 +38,13 @@
 
 	</main>
 	
-	<table>
+	
+	
 		<c:forEach var="top" items="${top}">
-		<tr>
-			<td>
-				<a href= "singleResult.do?id=${top.id}" > <img alt="${top.name }" src="${top.image}" height= "400" width="400"></a>
-			</td>
-		</tr>
+			<a href= "singleResult.do?id=${top.id}" ><img alt="${top.name}" src="${top.image}" style="width 10%;" ></a> 
 		</c:forEach>
-	</table>
+		
+	
 	
 	
 	<br> 
