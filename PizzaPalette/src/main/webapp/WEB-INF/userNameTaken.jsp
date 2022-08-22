@@ -5,10 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Error</title>
+
+<jsp:include page="head.jsp" />
+
 </head>
 <body>
+
 	<jsp:include page="navBar.jsp"></jsp:include>
 
 <h3>Username is taken please try again</h3>
+
+<jsp:include page="footer.jsp" />
+<jsp:include page="foot.jsp" />
 </body>
 </html>

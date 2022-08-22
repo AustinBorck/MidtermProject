@@ -57,6 +57,11 @@ public class WebsiteController {
 		}
 	}
 	
+	@RequestMapping(path = { "/", "about.do" })
+	public String about(Model model) {
+		return "about";
+	}
+	
 }
 	
 	

@@ -5,8 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Update</title>
+
+<jsp:include page="head.jsp" />
+
 </head>
 <body>
+
+<jsp:include page="navBar.jsp" />
+
 <h3>Update account</h3>
 User: ${user.username}
 <br>
@@ -18,5 +24,8 @@ Last Name: <input type="text" name="lastName" value="${user.lastName}"><br>
 <input type="hidden" value="${user.id}" name="updateAccount"/>
 <input type="submit" value="Update Account"/>
 </form>
+
+<jsp:include page="footer.jsp" />
+<jsp:include page="foot.jsp" />
 </body>
 </html>
