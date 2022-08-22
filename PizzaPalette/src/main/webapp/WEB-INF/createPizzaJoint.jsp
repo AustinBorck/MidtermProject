@@ -16,9 +16,9 @@
 		Website URL: <input type="text" name="website" required><br>
 		Description: <input type="text" name="description" required><br>
 		Special Features<br>
-		Delivery: <input type="checkbox" name="attributes" value="Delivery">
-		Dine-in: <input type="checkbox" name="attributes" value="Dine-in">
-		Carry-out: <input type="checkbox" name="attributes" value="Carry-out">
+		Delivery: <input type="checkbox" name="attributes" value="1">
+		Dine-in: <input type="checkbox" name="attributes" value="2">
+		Carry-out: <input type="checkbox" name="attributes" value="3">
 		New York style: <input type="checkbox" name="attributes" value="New York style">
 		Brooklyn style: <input type="checkbox" name="attributes" value="Brooklyn style">
 		<br>Chicago style: <input type="checkbox" name="attributes" value="Chicago style">

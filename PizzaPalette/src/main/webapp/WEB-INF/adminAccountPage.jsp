@@ -19,6 +19,9 @@
 	<form action="getAllUsers.do" method="GET">
 	<input type="submit" value="Show all Users">
 	</form>
+	<form action="createPizza.do" method="GET">
+	<input type="submit" value="Create New PizzaJoint">
+	</form>
 
 	<form action="logout.do" method="POST">
 		<input type="submit" value="Logout">

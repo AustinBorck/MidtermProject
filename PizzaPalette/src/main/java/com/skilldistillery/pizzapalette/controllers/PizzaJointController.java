@@ -1,6 +1,8 @@
 package com.skilldistillery.pizzapalette.controllers;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -55,8 +57,13 @@ public class PizzaJointController {
 	
 	
 	@RequestMapping(path = "createPizzaJoint.do", method = RequestMethod.POST)
-	public String createAccount(Model model, String name, String imageUrl, String website, String description, String street, String state, String city, String phone,
-			String zip, List<Attribute> attributes) {
+	public String createAccount(HttpSession session, Model model, String name, String imageUrl, String website, String description, String street, String state, String city, String phone,
+			String zip, String[] attributes) {
+		List<Attribute> newAtts = new ArrayList<>();
+		for (String id : attributes) {
+			Attribute att = new Attribute();
+			att.setId(Integer.parseInt(id));
+		}
 		PizzaJoint pizzaJoint = new PizzaJoint();
 		Address newAddy = new Address();
 		newAddy.setStreet(street);
@@ -67,12 +74,13 @@ public class PizzaJointController {
 		pizzaJoint.setAddress(newAddy);
 		pizzaJoint.setName(name);
 		pizzaJoint.setApproved(true);
-		pizzaJoint.setAttributes(attributes);
+		pizzaJoint.setAttributes(newAtts);
 		pizzaJoint.setImage(imageUrl);
 		pizzaJoint.setWebsite(website);
 		pizzaJoint.setDescription(description);
 		pizzaJoint.setDateAdded(LocalDateTime.now());
-		
+		User user = (User) session.getAttribute("loggedInUser");
+		pizzaJoint.setAddedByUser(user);
 		try {
 			pizzaDao.addPizzaJoint(pizzaJoint);
 		} catch (Exception e) {

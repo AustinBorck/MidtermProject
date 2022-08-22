@@ -13,7 +13,7 @@
 
 	<jsp:include page="navBar.jsp"></jsp:include>
 
-<h3>Username is taken please try again</h3>
+<h3>Error, that Pizza Joint already exists.</h3>
 
 <jsp:include page="footer.jsp" />
 <jsp:include page="foot.jsp" />
