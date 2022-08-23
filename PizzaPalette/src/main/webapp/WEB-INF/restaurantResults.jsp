@@ -22,9 +22,9 @@
 		<table class="table table-striped table-hover table-md table-row" >
 		<tbody >
 			<tr>
-				<th ><img src="${pizzajoint.image }"/></th>
-				<td ><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
-				<td >
+				<td><img src="${pizzajoint.image }"/></td>
+				<td><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
+				<td>
 					<c:forEach var="att" items="${pizzajoint.attributes}">
 						<ul><li>${att.name}</li></ul>
 					</c:forEach>

@@ -4,3 +4,5 @@
 <a href="index.do">Home</a>
 <a href="contact.do">Contact</a>
 <a href="about.do">About</a>
+<a href="loginButton.do">Account</a>
+<a href="loginButton.do">Log In</a>

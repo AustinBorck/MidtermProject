@@ -27,7 +27,35 @@
   padding: 1px;
 }
 
-th{
-	position: sticky;
-	left: 0;
+table, td {
+  text-align: center;
+  table-layout: fixed;
 }
+
+ul {
+  list-style-type: none;
+ }
+ 
+ .home{
+ 	white-space: nowrap;
+ 	display: inline-block;
+ }
+ 
+ .homeimg{
+ 	float: left;
+ }
+ 
+ .addComment{
+ 	text-align: center;
+ }
+ 
+ .checked {
+  color: orange;
+}
+
+.pizzaInf{
+	text-align: center;
+}
+ 
+ 
+ 

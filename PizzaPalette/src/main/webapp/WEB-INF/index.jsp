@@ -16,16 +16,11 @@
 
 <body>
 
-	<jsp:include page="navBar.jsp"></jsp:include>
+	<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
 	<main class="container-fluid">
 		<h1>Pizza Palette</h1>
 		<br>
-		
-		<form action="loginButton.do" method="GET">
-		<input class="button" type="submit" value="Login">
-		</form>
-		<br> <br>
  		
 		<form action="searchKeyword.do" method="GET">
 			Search: <input class="form-control" type="text" name="keyword" /><br>

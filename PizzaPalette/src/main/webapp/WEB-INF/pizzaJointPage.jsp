@@ -10,79 +10,88 @@
 <jsp:include page="head.jsp" />
 </head>
 <body>
-	<jsp:include page="navBar.jsp"></jsp:include>
+	<jsp:include page="navBar.jsp"></jsp:include><br>
+	<br>
 
 	<h2>${pizzaJoint.name}</h2>
-
-	<div class="image">
-		<img src="${pizzaJoint.image}" height= "400" style="width: 50%">
-</div>
-
-	<table id="table-1">
-       <tbody>
-			<tr class="row-1">
-				<td class="column-1">
-					<p>${pizzaJoint.description}</p>
-
-				</td>
-
-	</tr>
-			<tr class="row-2">
-				<td class="column-2">
-				<c:forEach var="att" items="${pizzaJoint.attributes}">
- 				${att.name},
-				</c:forEach></td>
-
-
-			</tr>
-			</tbody>
-		</table>
-
-	<%-- 
-<img alt="${pizzaJoint.name}" src="${pizzaJoint.image}" height= "400" style="width: 50%" >
-<br>
-${pizzaJoint.description}
-<br>
-<c:forEach var="att" items="${pizzaJoint.attributes}">
- ${att.name},
-</c:forEach> --%>
-	<br>
-	<a href="${pizzaJoint.website}" target=_blank>${pizzaJoint.website}</a>
-	<br> ${pizzaJoint.address.phoneNumber}
-	<br> ${pizzaJoint.address.street}
-	<br> ${pizzaJoint.address.city}
-	<br> ${pizzaJoint.address.state}
-	<br> ${pizzaJoint.address.zip}
 	<br>
 
-		<ul>
-	<c:forEach var="review" items="${reviews}">
-	
+	<div class="home">
+		<img class="homeimg" src="${pizzaJoint.image}" height="500"
+			width="650"><br>
+		<br>
 
-			<li>${review.userReview.username}</li>
-			<li>${review.comments}</li>
-			<li>${review.rating}</li>
-			<li>${review.reviewDate}</li>
-			<c:if test="${not empty sessionScope.loggedInUser && review.userReview.username == sessionScope.loggedInUser.username}">
-			<form action="deleteReview.do" method="POST">
-			<input type="hidden" name="reviewId" value="${review.id}">
-			<input type="hidden" name="pizzaId" value="${pizzaJoint.id}">
-			<input type="submit" value="Delete">
-			</form>
-			</c:if>
+		<div class="pizzaInf">
+		<c:forEach var="att" items="${pizzaJoint.attributes}">
+			<ul>
+				<li>${att.name}</li>
+			</ul>
+		</c:forEach>
+
+		${pizzaJoint.description}<br>
+		<br> ${pizzaJoint.address.phoneNumber}<br>
+		${pizzaJoint.address.street}<br> ${pizzaJoint.address.city},
+		${pizzaJoint.address.state}, ${pizzaJoint.address.zip}<br> <a
+			href="${pizzaJoint.website}" target=_blank>${pizzaJoint.website}</a>
+		</div>
+	</div>
+
+	<div class="addComment">
+		<br><br>
+		<form action="addReview.do" method="POST">
 			
-	</c:forEach>
-		</ul>
-		
-		
-	<form action="addReview.do" method="POST">
-		Comments: <input type="text" name="comments"><br> Rating:
-		<input type="number" name="userRating" min="0" step="1" max="5"><br>
-		Photos: <input type="text" name="imageUrl"> <input
-			type="hidden" name="pizzaJointId" value="${pizzaJoint.id}"> <input
-			type="hidden" name="userId" value="${loggedInUser.id}"> <input
-			type="submit" value="Add Review">
-	</form>
+			  <label>Rating: </label>
+			  <input id="rating1" type="radio" name="userRating" value="1">
+			  <label for="rating1">1</label>
+			  <input id="rating2" type="radio" name="userRating" value="2">
+			  <label for="rating2">2</label>
+			  <input id="rating3" type="radio" name="userRating" value="3">
+			  <label for="rating3">3</label>
+			  <input id="rating4" type="radio" name="userRating" value="4">
+			  <label for="rating4">4</label>
+			  <input id="rating5" type="radio" name="userRating" value="5">
+			  <label for="rating5">5</label><br>
+			
+			Comments: <input type="text" name="comments">
+			Photos: <input type="text" name="imageUrl"> <input
+				type="hidden" name="pizzaJointId" value="${pizzaJoint.id}">
+			<input type="hidden" name="userId" value="${loggedInUser.id}">
+			<input type="submit" value="Add Review">
+		</form>
+	</div><br><br>
+
+	<table class="table table-striped table-hover table-md">
+		<thead>
+			<tr>
+				<th scope="col">User</th>
+				<th scope="col">Date</th>
+				<th scope="col">Rating</th>
+				<th scope="col">Comments</th>
+			</tr>
+		</thead>
+
+		<c:forEach var="review" items="${reviews}">
+		<tbody>
+			<td>${review.userReview.username}</td>
+			<td>${review.reviewDate}</td>
+			<td>${review.rating}</td>
+			<td>${review.comments}</td> 
+			
+				<c:if
+					test="${not empty sessionScope.loggedInUser && review.userReview.username == sessionScope.loggedInUser.username}">
+					<form action="deleteReview.do" method="POST">
+						<input type="hidden" name="reviewId" value="${review.id}">
+						<input type="hidden" name="pizzaId" value="${pizzaJoint.id}">
+						<input type="submit" value="Delete">
+					</form>
+				</c:if>
+				
+		</tbody>
+		</c:forEach>
+	</table>
+
+
+
 	<jsp:include page="foot.jsp" />
 </body>
 </html>
