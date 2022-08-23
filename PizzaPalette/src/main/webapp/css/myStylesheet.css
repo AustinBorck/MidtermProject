@@ -1,20 +1,5 @@
 @charset "UTF-8";
 
-#table-1, #table-2, #table-3 {
-    width: 40%;
-    font-weight: bold;
-  
-}
-
-#table-1 .column-1, #table-2 .column-1, #table-3 .column-1 {
-    background-color: #000000;
-    color: #fff;
-    width: 40%;
-}
-
-
-
-
 .top3 {
   position: relative;
   max-width: 800px;
@@ -42,3 +27,7 @@
   padding: 1px;
 }
 
+th{
+	position: sticky;
+	left: 0;
+}

@@ -19,16 +19,16 @@
 	
 	<div >
 	<c:forEach var="pizzajoint" items="${results}">
-		<table class="table-primary table-stripped-columns table-hover" >
+		<table class="table table-striped table-hover table-md table-row" >
 		<tbody >
 			<tr>
-				<td><img src="${pizzajoint.image }"/></td>
-				<td><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
-				<td>
+				<th ><img src="${pizzajoint.image }"/></th>
+				<td ><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
+				<td >
 					<c:forEach var="att" items="${pizzajoint.attributes}">
 						<ul><li>${att.name}</li></ul>
 					</c:forEach>
-				</td><br><br>
+				</td>
 			</tr>
 		</tbody>
 		</table>
