@@ -63,6 +63,7 @@ public class PizzaJointController {
 		for (String id : attributes) {
 			Attribute att = new Attribute();
 			att.setId(Integer.parseInt(id));
+			newAtts.add(att);
 		}
 		PizzaJoint pizzaJoint = new PizzaJoint();
 		Address newAddy = new Address();
@@ -93,9 +94,13 @@ public class PizzaJointController {
 	@RequestMapping(path= "pizzaJointById.do")
 	public String getPizzaPageById(Model model, int pizzaJointId) {
 		PizzaJoint pizzaJoint = pizzaDao.findSinglePizzaJoint(pizzaJointId);
+		if(pizzaJoint == null) {
+			return "noRestaurantResults";
+		}else {
 		model.addAttribute("pizzaJoint", pizzaJoint);
 		model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaJointId));
 		return "adminPizzaJointPage";
+		}
 	}
 	
 	@RequestMapping(path="deactivatePizzajoint.do", method=RequestMethod.POST)

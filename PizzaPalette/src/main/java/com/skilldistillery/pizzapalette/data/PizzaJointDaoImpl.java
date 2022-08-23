@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 
 import com.skilldistillery.pizzapalette.entities.Address;
 import com.skilldistillery.pizzapalette.entities.Attribute;
+import com.skilldistillery.pizzapalette.entities.Category;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
 import com.skilldistillery.pizzapalette.entities.Review;
 import com.skilldistillery.pizzapalette.entities.ReviewImage;
@@ -34,8 +35,12 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		for (String ids : attributes) {
 			Attribute att = new Attribute();
 			att.setId(Integer.parseInt(ids));
+			newAtts.add(att);
 		}
 		Address newAddy = new Address();
+		Category category = new Category();
+		category.setName("NewPizzaPlace");
+		category.setAttributes(newAtts);
 		newAddy.setStreet(street);
 		newAddy.setCity(city);
 		newAddy.setState(state);
@@ -44,13 +49,15 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		pizzaJoint.setAddress(newAddy);
 		pizzaJoint.setName(name);
 		pizzaJoint.setApproved(true);
-		pizzaJoint.setAttributes(newAtts);
+		pizzaJoint.setAttributes(category.getAttributes());
 		pizzaJoint.setImage(imageUrl);
 		pizzaJoint.setWebsite(website);
 		pizzaJoint.setDescription(description);
 		pizzaJoint.setDateAdded(LocalDateTime.now());
 		User user = (User) session.getAttribute("loggedInUser");
+		
 		pizzaJoint.setAddedByUser(user);
+		em.persist(category);
 		em.persist(newAddy);
 		em.persist(pizzaJoint);
 		return pizzaJoint;

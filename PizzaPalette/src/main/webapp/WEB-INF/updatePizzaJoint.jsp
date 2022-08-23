@@ -41,7 +41,7 @@
 		
 		<br>Street: <input type="text" name="street" value="${pizzaJoint.address.street}" required><br>
 		City: <input type="text" name="city" value="${pizzaJoint.address.city}" required><br>
-		State: <input type="text" name="State" value="${pizzaJoint.address.state}" required><br>
+		State: <input type="text" name="state" value="${pizzaJoint.address.state}" required><br>
 		Zip Code: <input type="text" name="zip" value="${pizzaJoint.address.zip}" required><br>
 		Phone Number: <input type="text" name="phone" value="${pizzaJoint.address.phoneNumber}" required><br>
 		
