@@ -19,7 +19,7 @@
 		Website URL: <input type="text" name="website" value="${pizzaJoint.website}"required><br>
 		Description: <input type="text" name="description" value="${pizzaJoint.description}"required><br>
 		Special Features<br>
-		Delivery: <input type="checkbox" name="attributes" value="1">
+		Delivery: <input type="checkbox" name="attributes" value="1" required>
 		Dine-in: <input type="checkbox" name="attributes" value="2">
 		Carry-out: <input type="checkbox" name="attributes" value="3">
 		New York style: <input type="checkbox" name="attributes" value="4">

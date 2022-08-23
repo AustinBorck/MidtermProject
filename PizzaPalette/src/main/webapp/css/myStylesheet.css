@@ -37,13 +37,13 @@ ul {
  }
  
  .home{
- 	white-space: nowrap;
- 	display: inline-block;
- }
+/*  	white-space: nowrap;
+ *//*  	display: inline-block;
+ */ }
  
  .homeimg{
- 	float: left;
- }
+/*  	float: left;
+ */ }
  
  .addComment{
  	text-align: center;
@@ -57,5 +57,13 @@ ul {
 	text-align: center;
 }
  
- 
- 
+.desc {
+ text-align: center;
+}​
+
+
+
+
+
+
+
