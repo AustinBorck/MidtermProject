@@ -86,6 +86,7 @@ public class PizzaJointController {
 		} catch (Exception e) {
 			return "pizzaJointAlreadyExists";
 		}
+		model.addAttribute("top", pizzaDao.topRated(3));
 		return "index";
 	}
 	
@@ -100,11 +101,13 @@ public class PizzaJointController {
 	@RequestMapping(path="deactivatePizzajoint.do", method=RequestMethod.POST)
 	public String deactivatePizzaJoint(Model model, int id) {
 		pizzaDao.deactivatePizzaJoint(id);
+		model.addAttribute("top", pizzaDao.topRated(3));
 		return "index";
 	}
 	@RequestMapping(path="reactivatePizzajoint.do", method=RequestMethod.POST)
 	public String reactivatePizzaJoint(Model model, int id) {
 		pizzaDao.deactivatePizzaJoint(id);
+		model.addAttribute("top", pizzaDao.topRated(3));
 		return "index";
 	}
 	@RequestMapping(path="updatePizzaJoint.do")
@@ -126,6 +129,7 @@ public class PizzaJointController {
 			e.printStackTrace();
 			return "pizzaJointAlreadyExists";
 		}
+		model.addAttribute("top", pizzaDao.topRated(3));
 		return "index";
 	}
 	@RequestMapping(path = "deleteReview.do", method = RequestMethod.POST)
