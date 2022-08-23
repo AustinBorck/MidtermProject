@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.skilldistillery.pizzapalette.data.PizzaJointDAO;
 import com.skilldistillery.pizzapalette.data.UserDAO;
 import com.skilldistillery.pizzapalette.entities.Address;
 import com.skilldistillery.pizzapalette.entities.PizzaJoint;
@@ -20,6 +21,9 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
+	
+	@Autowired 
+	private PizzaJointDAO pizzaJointDao;
 
 //	@RequestMapping(path = { "/", "index.do" })
 //	public String home(Model model) {
@@ -56,8 +60,9 @@ public class UserController {
 	}
 
 	@RequestMapping("logout.do")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, Model model) {
 		session.removeAttribute("loggedInUser");
+		model.addAttribute("top", pizzaJointDao.topRated(3));
 		return "index";
 	}
 
@@ -128,6 +133,7 @@ public class UserController {
 		if(user.getRole().contains("admin")) {
 			return "allUsers";
 		} else {
+		model.addAttribute("top", pizzaJointDao.topRated(3));
 		return "index";
 		}
 	}
