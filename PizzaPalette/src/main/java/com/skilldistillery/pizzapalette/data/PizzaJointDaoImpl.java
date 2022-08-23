@@ -38,9 +38,6 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 			newAtts.add(att);
 		}
 		Address newAddy = new Address();
-		Category category = new Category();
-		category.setName("NewPizzaPlace");
-		category.setAttributes(newAtts);
 		newAddy.setStreet(street);
 		newAddy.setCity(city);
 		newAddy.setState(state);
@@ -49,7 +46,7 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		pizzaJoint.setAddress(newAddy);
 		pizzaJoint.setName(name);
 		pizzaJoint.setApproved(true);
-		pizzaJoint.setAttributes(category.getAttributes());
+		pizzaJoint.setAttributes(newAtts);
 		pizzaJoint.setImage(imageUrl);
 		pizzaJoint.setWebsite(website);
 		pizzaJoint.setDescription(description);
@@ -57,7 +54,6 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		User user = (User) session.getAttribute("loggedInUser");
 		
 		pizzaJoint.setAddedByUser(user);
-		em.persist(category);
 		em.persist(newAddy);
 		em.persist(pizzaJoint);
 		return pizzaJoint;
