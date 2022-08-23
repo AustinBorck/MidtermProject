@@ -13,59 +13,24 @@
 </head>
 <body>
 
-	<jsp:include page="navBar.jsp"></jsp:include>
+	<jsp:include page="navBar.jsp"></jsp:include><br><br>
 	
-	<h1>PizzaJoints </h1>
+	<h1>PizzaJoints </h1></ul>
+	
 	<c:forEach var="pizzajoint" items="${results}">
-	<td><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
+		<tbody>
+			<tr>
+				<td><img src="${pizzajoint.image }"/></td>
+				<td><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
+				<td>
+					<c:forEach var="att" items="${pizzajoint.attributes}">
+						<ul><li>${att.name}</li></ul>
+					</c:forEach>
+				</td><br><br>
+			</tr>
+		</tbody>
 	</c:forEach>
 	
-	<%-- <div>
-		<table class="table table-striped table-hover table-md">
-		  <thead>
-		    <tr>
-		      <th scope="col">ID</th>
-		      <th scope="col">Title</th>
-		      <th scope="col">Author</th>         	            	
-		      <th scope="col">Genre</th>
-		      <th scope="col">Series</th>
-		      <th scope="col">Series Name</th>
-		      <th scope="col">Series Number</th>
-		      <th scope="col">Description</th>
-		      <th scope="col">Page Count</th>
-		      <th scope="col">Date Created</th>
-		      <th scope="col">Date Updated</th>
-		      <th scope="col">Edit/Delete</th>
-		    </tr>
-		  </thead>
-		
-		<c:forEach var="book" items="${book }">
-		  <tbody>
-		    <tr>
-		      <th scope="row">${book.id}</th>
-		      <td><a href="edit.do?id=${book.id}">${book.title}</a></td>
-		      <td>${book.author}</td>
-		      <td>${book.genre}</td>
-		      <td>${book.series}</td>
-		      <td>${book.seriesName}</td>
-		      <td>${book.number}</td>
-		      <td>${book.description}</td>
-		      <td>${book.pageCount}</td>
-		      <td>${book.dateCreated}</td>
-		      <td>${book.dateUpdated}</td>
-		      <td>
-		      	<form action="edit.do?id=${book.id }" method="GET">
-		      	<input type="hidden" value="${book.id }" name="id"/>
-		      	<button class="button" type="submit">Edit ${book.id }</button>
-		      	</form>
-		      </td>
-		      
-		    </tr>
-		  </tbody>
-		</c:forEach>
-		
-		</table>
-	</div> --%>
 	
 	<jsp:include page="foot.jsp" />
 
