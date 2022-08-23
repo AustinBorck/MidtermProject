@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PizzaJoints</title>
+<title>Pizza Restaurants</title>
 
 <jsp:include page="head.jsp" />
 
@@ -15,7 +15,7 @@
 
 	<jsp:include page="navBar.jsp"></jsp:include><br><br>
 	
-	<h1>PizzaJoints </h1></ul>
+	<h1>Pizza Restaurants</h1></ul>
 	
 	<c:forEach var="pizzajoint" items="${results}">
 		<tbody>
