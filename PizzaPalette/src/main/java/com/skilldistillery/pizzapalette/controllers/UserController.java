@@ -135,7 +135,7 @@ public class UserController {
 		} else {
 		model.addAttribute("top", pizzaJointDao.topRated(3));
 		return "index";
-		}
+	}
 	}
 	
 	@RequestMapping(path="getAllUsers.do")

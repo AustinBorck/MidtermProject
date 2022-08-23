@@ -28,7 +28,8 @@
 
 	</tr>
 			<tr class="row-2">
-				<td class="column-2"><c:forEach var="att" items="${pizzaJoint.attributes}">
+				<td class="column-2">
+				<c:forEach var="att" items="${pizzaJoint.attributes}">
  				${att.name},
 				</c:forEach></td>
 
@@ -54,15 +55,26 @@ ${pizzaJoint.description}
 	<br> ${pizzaJoint.address.zip}
 	<br>
 
-	<c:forEach var="review" items="${reviews}">
 		<ul>
+	<c:forEach var="review" items="${reviews}">
+	
 
 			<li>${review.userReview.username}</li>
 			<li>${review.comments}</li>
 			<li>${review.rating}</li>
 			<li>${review.reviewDate}</li>
-		</ul>
+			<c:if test="${not empty sessionScope.loggedInUser && review.userReview.username == sessionScope.loggedInUser.username}">
+			<form action="deleteReview.do" method="POST">
+			<input type="hidden" name="reviewId" value="${review.id}">
+			<input type="hidden" name="pizzaId" value="${pizzaJoint.id}">
+			<input type="submit" value="Delete">
+			</form>
+			</c:if>
+			
 	</c:forEach>
+		</ul>
+		
+		
 	<form action="addReview.do" method="POST">
 		Comments: <input type="text" name="comments"><br> Rating:
 		<input type="number" name="userRating" min="0" step="1" max="5"><br>

@@ -5,43 +5,48 @@
 <head>
 <meta charset="UTF-8">
 <title>AdminAccount</title>
+
 <jsp:include page="head.jsp" />
+
 </head>
 <body>
-	<jsp:include page="navBar.jsp"></jsp:include>
 
-	<h2>ADMIN USER: ${loggedInUser.firstName}</h2>
+	<jsp:include page="navBar.jsp"></jsp:include><br><br>
+
+	<h2>ADMIN USER: ${loggedInUser.firstName}</h2><br>
 
 	Username: ${loggedInUser.username}<br>
 	Password: ${loggedInUser.password}<br>
-	Last Name: ${loggedInUser.lastName}<br>
+	First Name: ${loggedInUser.firstName}<br>
+	Last Name: ${loggedInUser.lastName}<br><br>
 	
 	<form action="getAllUsers.do" method="GET">
 	<input type="submit" value="Show all Users">
-	</form>
+	</form><br>
+	
 	<form action="createPizza.do" method="GET">
 	<input type="submit" value="Create New PizzaJoint">
-	</form>
-
-	<form action="logout.do" method="POST">
-		<input type="submit" value="Logout">
-	</form>
-
-
+	</form><br>
+	
 	<form action="pizzaJointById.do" method="GET">
 		Search for a PizzaJoint by ID: <input type="text" name="pizzaJointId">
 		<input type="submit" value="Search">
-	</form>
+	</form><br>
 
 	<form action="updateAccountPage.do">
 	<input type="hidden" value="${loggedInUser.id}" name="updateAccount"/>
 	<input type="submit" value="Update Account"/>
-	</form>
+	</form><br>
+	
 	<form action="deactivateAccount.do" method="POST">
 	<input type="hidden" value="${loggedInUser.id}" name="deactivateAccount"/>
 	<input type="submit" value="Deactivate Account"/>
-	</form>
+	</form><br>
 	
+	<form action="logout.do" method="POST">
+		<input type="submit" value="Logout">
+	</form><br>
+
 	<jsp:include page="foot.jsp" />
 
 </body>
