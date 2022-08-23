@@ -39,16 +39,18 @@
 	</main>
 	
 	
-	<div class="main">
 		
 		<c:forEach var="top" items="${top}">
-			<a href= "singleResult.do?id=${top.id}" ><img alt="${top.name}" src="${top.image}" class="top3" ></a> 
+	<div class="top3">
+			<a href= "singleResult.do?id=${top.id}" ><img alt="${top.name}" src="${top.image}" class="place" style="width:100%;"></a>
 			
-			<div class="pic">${top.name}</div>
-		
-		</c:forEach>
+			<div class="picDesc"><h3>${top.name}</h3> 
+			
+			</div>
 		
 	</div>
+		</c:forEach>
+		
 	
 	
 	<br> 

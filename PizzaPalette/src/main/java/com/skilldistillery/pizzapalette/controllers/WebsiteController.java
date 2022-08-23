@@ -49,7 +49,7 @@ public class WebsiteController {
 	
 	@RequestMapping(path = {"contacted.do" })
 	public String contacted(Model model) {
-		return "index";
+		return "submissionSuccesful";
 	}
 	
 	@RequestMapping(path = {"about.do" })
