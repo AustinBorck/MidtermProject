@@ -21,6 +21,8 @@
   max-height: 800px;
   margin-top: 1em;;
   padding:0px;
+  margin-left: auto;
+  margin-right: auto;
   
   
 }
@@ -39,3 +41,4 @@
   width: 100%;
   padding: 1px;
 }
+

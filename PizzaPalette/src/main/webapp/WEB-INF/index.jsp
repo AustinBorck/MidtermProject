@@ -44,7 +44,7 @@
 	<div class="top3">
 			<a href= "singleResult.do?id=${top.id}" ><img alt="${top.name}" src="${top.image}" class="place" style="width:100%;"></a>
 			
-			<div class="picDesc"><h3>${top.name}</h3> 
+			<div class="picDesc"><h3>${top.name}</h3> <br>
 			
 			</div>
 		

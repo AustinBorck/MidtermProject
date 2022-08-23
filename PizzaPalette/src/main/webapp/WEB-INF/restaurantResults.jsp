@@ -17,8 +17,10 @@
 	
 	<h1>Pizza Restaurants</h1></ul>
 	
+	<div >
 	<c:forEach var="pizzajoint" items="${results}">
-		<tbody>
+		<table class="table-primary table-stripped-columns table-hover" >
+		<tbody >
 			<tr>
 				<td><img src="${pizzajoint.image }"/></td>
 				<td><a href="singleResult.do?id=${pizzajoint.id}">${pizzajoint.name}</a></td>
@@ -29,8 +31,9 @@
 				</td><br><br>
 			</tr>
 		</tbody>
+		</table>
 	</c:forEach>
-	
+	</div>
 	
 	<jsp:include page="foot.jsp" />
 
