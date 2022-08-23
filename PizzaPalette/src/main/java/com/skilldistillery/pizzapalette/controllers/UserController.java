@@ -128,7 +128,7 @@ public class UserController {
 		if(user.getRole().contains("admin")) {
 			return "allUsers";
 		} else {
-		return "index";
+		return "submissionSuccesful";
 		}
 	}
 	

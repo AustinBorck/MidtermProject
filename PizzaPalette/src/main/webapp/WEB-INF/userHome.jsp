@@ -9,22 +9,23 @@
 
 </head>
 <body>
-	<jsp:include page="navBar.jsp"></jsp:include>
+	<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-	<h2>Welcome, ${loggedInUser.firstName}</h2>
+	<h2>Welcome, ${loggedInUser.firstName}</h2><br>
 
 	Username: ${loggedInUser.username}<br>
 	Password: ${loggedInUser.password}<br>
-	Last Name: ${loggedInUser.lastName}<br>
+	Last Name: ${loggedInUser.lastName}<br><br>
 
 	<form action="logout.do" method="POST">
 		<input type="submit" value="Logout">
-	</form>
+	</form><br>
 
 	<form action="updateAccountPage.do">
 	<input type="hidden" value="${loggedInUser.id}" name="updateAccount"/>
 	<input type="submit" value="Update Account"/>
-	</form>
+	</form><br>
+	
 	<form action="deactivateAccount.do" method="POST">
 	<input type="hidden" value="${loggedInUser.id}" name="deactivateAccount"/>
 	<input type="submit" value="Deactivate Account"/>

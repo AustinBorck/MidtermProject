@@ -9,9 +9,9 @@
 
 </head>
 <body>
-	<jsp:include page="navBar.jsp"></jsp:include>
+	<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-<h3>Your submission was successful</h3>
+<h3>Your submission was successful.</h3>
 
 <jsp:include page="foot.jsp" />
 </body>
