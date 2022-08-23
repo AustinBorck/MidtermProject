@@ -25,7 +25,6 @@ Last Name: <input type="text" name="lastName" value="${user.lastName}"><br>
 <input type="submit" value="Update Account"/>
 </form>
 
-<jsp:include page="footer.jsp" />
 <jsp:include page="foot.jsp" />
 </body>
 </html>

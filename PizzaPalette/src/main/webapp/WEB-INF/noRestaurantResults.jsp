@@ -13,7 +13,6 @@
 
 <h3>No Pizza Joints match your search criteria.</h3>
 
-<jsp:include page="footer.jsp" />
 <jsp:include page="foot.jsp" />
 </body>
 </html>

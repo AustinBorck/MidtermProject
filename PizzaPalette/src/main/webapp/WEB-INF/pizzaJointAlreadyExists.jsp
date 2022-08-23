@@ -15,7 +15,6 @@
 
 <h3>Error, that Pizza Joint already exists.</h3>
 
-<jsp:include page="footer.jsp" />
 <jsp:include page="foot.jsp" />
 </body>
 </html>

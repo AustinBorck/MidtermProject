@@ -27,8 +27,6 @@
 <a href="http://18.144.181.105/">Tiarra</a>, <a href="http://184.169.170.189/">Austin</a>, <a href="http://44.209.51.251/">Diego</a>
 </p>
 
-<jsp:include page="footer.jsp" />
-
 <jsp:include page="foot.jsp" />
 
 </body>

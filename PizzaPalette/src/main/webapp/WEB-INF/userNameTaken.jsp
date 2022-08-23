@@ -15,7 +15,6 @@
 
 <h3>Username is taken please try again</h3>
 
-<jsp:include page="footer.jsp" />
 <jsp:include page="foot.jsp" />
 </body>
 </html>

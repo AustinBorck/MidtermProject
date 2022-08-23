@@ -71,7 +71,6 @@ ${pizzaJoint.description}
 			type="hidden" name="userId" value="${loggedInUser.id}"> <input
 			type="submit" value="Add Review">
 	</form>
-	<jsp:include page="footer.jsp" />
 	<jsp:include page="foot.jsp" />
 </body>
 </html>

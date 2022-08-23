@@ -2,3 +2,5 @@
     pageEncoding="UTF-8"%>
 
 <a href="index.do">Home</a>
+<a href="contact.do">Contact</a>
+<a href="about.do">About</a>

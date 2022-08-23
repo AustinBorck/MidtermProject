@@ -25,5 +25,8 @@
 	<input type="submit" value="Deactivate Account"/>
 	</form><br>
 	</c:forEach>
+	
+	<jsp:include page="foot.jsp" />
+	
 </body>
 </html>

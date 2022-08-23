@@ -54,3 +54,8 @@
 			</tr>
 			</tbody>
 		</table>
+		
+		<jsp:include page="foot.jsp" />
+		
+	</body>
+</html>

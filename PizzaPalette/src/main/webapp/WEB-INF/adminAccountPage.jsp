@@ -42,7 +42,6 @@
 	<input type="submit" value="Deactivate Account"/>
 	</form>
 	
-	<jsp:include page="footer.jsp" />
 	<jsp:include page="foot.jsp" />
 
 </body>

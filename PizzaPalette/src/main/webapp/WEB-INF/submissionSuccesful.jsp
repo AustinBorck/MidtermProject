@@ -13,7 +13,6 @@
 
 <h3>Your submission was successful</h3>
 
-<jsp:include page="footer.jsp" />
 <jsp:include page="foot.jsp" />
 </body>
 </html>
