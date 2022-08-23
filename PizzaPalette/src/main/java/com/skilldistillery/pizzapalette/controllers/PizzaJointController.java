@@ -128,6 +128,12 @@ public class PizzaJointController {
 		}
 		return "index";
 	}
+	@RequestMapping(path = "deleteReview.do", method = RequestMethod.POST)
+	public String deleteReview (Model model, int reviewId, int pizzaId) {
+		pizzaDao.deleteReview(reviewId);
+		model.addAttribute("pizzaJoint", pizzaDao.findSinglePizzaJoint(pizzaId));
+		return "pizzaJointPage";
+	}
 	
 }
 	

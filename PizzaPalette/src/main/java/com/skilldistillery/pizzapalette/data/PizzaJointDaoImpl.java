@@ -145,6 +145,17 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		}
 		return joints;
 				
+	}
+
+	@Override
+	public boolean deleteReview(int reviewId) {
+		boolean worked = false;
+		Review deleteReview = em.find(Review.class, reviewId);
+		if (deleteReview != null) {
+			em.remove(deleteReview);
+			worked = !em.contains(deleteReview);
+		} 
+		return worked;
 	}	
 	
 }

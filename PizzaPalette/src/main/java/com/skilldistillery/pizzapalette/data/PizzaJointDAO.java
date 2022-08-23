@@ -34,5 +34,5 @@ public interface PizzaJointDAO {
 	public PizzaJoint updatePizzaJoint(HttpSession session, Model model, int id, String name, String imageUrl, String website, String description, String street, String state, String city, String phone,
 			String zip, String[] attributes);
 		
-	
+	public boolean deleteReview(int reviewId);
 }
