@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
+  UNIQUE INDEX `password_UNIQUE` (`password` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_user_address1`
     FOREIGN KEY (`address_id`)
@@ -293,9 +294,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `pizzadb`;
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`, `phone_number`) VALUES (1, '163 W Mountain Ave', 'Fort Collins', 'CO', '80524', '9702219000');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`, `phone_number`) VALUES (2, '205 North College Ave', 'Fort Collins', 'CO', '80524', '9704988898');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`, `phone_number`) VALUES (3, '1215 Main Street Unit I', 'Windsor', 'CO', '80550', '9706869967');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`, `phone_number`) VALUES (1, '163 W Mountain Ave', 'Fort Collins', 'CO', '80524', '970-221-9000');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`, `phone_number`) VALUES (2, '205 North College Ave', 'Fort Collins', 'CO', '80524', '970-498-8898');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`, `phone_number`) VALUES (3, '1215 Main Street Unit I', 'Windsor', 'CO', '80550', '970-686-9967');
 
 COMMIT;
 
