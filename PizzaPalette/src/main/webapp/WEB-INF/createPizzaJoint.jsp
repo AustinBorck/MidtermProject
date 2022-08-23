@@ -38,7 +38,7 @@
 		
 		<br>Street: <input type="text" name="street" required><br>
 		City: <input type="text" name="city" required><br>
-		State: <input type="text" name="State" required><br>
+		State: <input type="text" name="state" required><br>
 		Zip Code: <input type="text" name="zip" required><br>
 		Phone Number: <input type="text" name="phone" required><br>
 		
