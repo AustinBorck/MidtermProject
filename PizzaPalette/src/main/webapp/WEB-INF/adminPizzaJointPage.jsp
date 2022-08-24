@@ -56,6 +56,35 @@
 		</div>
 	</div>
 		
+		<table class="table table-striped table-hover table-md">
+			<thead>
+				<tr>
+					<th scope="col">User</th>
+					<th scope="col">Date</th>
+					<th scope="col">Rating</th>
+					<th scope="col">Comments</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<c:forEach var="review" items="${reviews}">
+					<tr>
+						<td>${review.userReview.username}</td>
+						<td>${review.reviewDate}</td>
+						<td>${review.rating}</td>
+						<td>${review.comments}</td>
+
+							<td><form action="deleteReview.do" method="POST">
+								<input type="hidden" name="reviewId" value="${review.id}">
+								<input type="hidden" name="pizzaId" value="${pizzaJoint.id}">
+								<input type="submit" value="Delete">
+							</form></td>
+
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		
 <jsp:include page="foot.jsp" />
 </main>
 </body>
