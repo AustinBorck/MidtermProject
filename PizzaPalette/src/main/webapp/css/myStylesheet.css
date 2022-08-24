@@ -9,10 +9,10 @@ h1 {
   text-align: center;
 }
 
-.top3 place {
+/* .top3 {
   position: relative;
   float: left;
-}
+} */
 
 table, td {
   text-align: center;
@@ -23,9 +23,9 @@ ul {
   list-style-type: none;
  }
  
- .homeimg{
+/*  .homeimg{
  	float: left;
- }
+ } */
  
  .addComment{
  	text-align: center;
@@ -49,4 +49,22 @@ ul {
 
 .title{
 	float: center;
+}
+
+.topName{
+	width: 200px;
+}
+
+/* .places{
+ position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   display: block;
+   margin: 0 auto;
+} */
+
+.topImg{
+	width: 80%;
+	height: 80%;
 }

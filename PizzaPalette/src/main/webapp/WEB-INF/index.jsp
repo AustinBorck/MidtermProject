@@ -11,47 +11,53 @@
 </head>
 
 <body>
-<main class="container-fluid">
-<jsp:include page="navBar.jsp"></jsp:include><br><br>
+	<main class="container-fluid">
+		<jsp:include page="navBar.jsp"></jsp:include><br>
+		<br>
 		<table>
-		<tbody>
-		<tr>
-			<td><img alt="" src="logo.png" width="200" height="200"></td>
-			<td> <h1 class="text-center" >Pizza Palette</h1></td>
-		</tr>
-		</tbody>
+			<tbody>
+				<tr>
+					<td><img alt="" src="logo.png" width="200" height="200"></td>
+					<td>
+						<h1 class="text-center">Pizza Palette</h1>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 		<br>
- 		
+
 		<form action="searchKeyword.do" method="GET">
 			<div class="input-group">
-				<input class="form-control rounded" type="text" name="keyword" placeholder="Search for Restaurant" aria-label="Search" aria-describedby="search-addon">
-				<input type="submit" class="btn btn-outline-primary" value="search"/>
+				<input class="form-control rounded" type="text" name="keyword"
+					placeholder="Search for Restaurant" aria-label="Search"
+					aria-describedby="search-addon"> <input type="submit"
+					class="btn btn-outline-primary" value="search" />
 			</div>
 		</form>
 		<br> <br>
-		
+
 		<h3 class="text-center">This Week's Top Rated Pizza Joints</h3>
 		<br> <br>
+<div class="container">
+		<div class="row justify-content-center places">
 
+
+			<c:forEach var="top" items="${top}">
+				<div class="col top3">
+					<a href="singleResult.do?id=${top.id}"> <img class="topImg" alt="${top.name}"
+						src="${top.image}" ></a><br>
+					<br>
+					<div class="topName">${top.name}</div>
+				</div>
+			</c:forEach>
+
+
+		</div>
+</div>
+
+		<br> <br>
+
+		<jsp:include page="foot.jsp" />
 	</main>
-	
-	
-		<table>
-		<tr>
-		<c:forEach var="top" items="${top}">
-			<div class="top3">
-				<tr><a href= "singleResult.do?id=${top.id}" >
-				<img alt="${top.name}" src="${top.image}" width="200" height="200" class="place" ></a><br><br>
-				${top.name}</tr>
-			</div>
-		</c:forEach>
-		</tr>
-		</table>
-	<br> 
-	<br> 
- 
-<jsp:include page="foot.jsp" />
-</main>
 </body>
 </html>
