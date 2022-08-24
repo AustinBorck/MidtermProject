@@ -14,7 +14,7 @@
 <main class="container-fluid">
 <jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-		<h1>Pizza Palette</h1>
+		<h1 style= "font-family: monaco">Pizza Palette</h1>
 		<br>
  		
 		<form action="searchKeyword.do" method="GET">
