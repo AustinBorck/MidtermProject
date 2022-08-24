@@ -27,11 +27,13 @@ public class UserController {
 
 
 	@RequestMapping(path = "loginButton.do", method = RequestMethod.GET)
-	public String goToLoginFrom(HttpSession session) {
+	public String goToLoginFrom(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null && user.getRole().contains("admin")) {
+			model.addAttribute("review", userDao.findUserReviews(user.getId()));
 			return "adminAccountPage";
 		} else if (user != null) {
+			model.addAttribute("review", userDao.findUserReviews(user.getId()));
 			return "userHome";
 		} else {
 			return "loginPage";
@@ -47,7 +49,7 @@ public class UserController {
 		} else {
 			session.setAttribute("loggedInUser", user);
 			User userOn = (User) session.getAttribute("loggedInUser");
-
+		
 			if (user.getRole().contains("admin")) {
 				model.addAttribute("review", userDao.findUserReviews(userOn.getId()));
 				return "adminAccountPage";
