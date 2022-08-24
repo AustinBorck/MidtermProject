@@ -6,13 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>AdminAccount</title>
-
 <jsp:include page="head.jsp" />
-
 </head>
-<body>
 
-	<jsp:include page="navBar.jsp"></jsp:include><br><br>
+<body>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
+
 	<div class="text-center">
 
 	<h2>ADMIN USER </h2><br>
@@ -90,7 +90,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-	<jsp:include page="foot.jsp" />
-
+		
+<jsp:include page="foot.jsp" />
+</main>
 </body>
 </html>

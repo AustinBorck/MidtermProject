@@ -5,14 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>CreateAnAccount</title>
-
 <jsp:include page="head.jsp" />
-
 </head>
 
 <body>
-
-	<jsp:include page="navBar.jsp"></jsp:include><br><br>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
 	
 	<div class="text-center">
 	<h3>Create an Account</h3><br>
@@ -29,7 +27,7 @@
 	</form>
 	</div>
 
-	<jsp:include page="foot.jsp" />
-	
+<jsp:include page="foot.jsp" />
+</main>
 </body>
 </html>

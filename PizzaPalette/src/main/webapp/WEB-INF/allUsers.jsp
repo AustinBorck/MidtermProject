@@ -6,14 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>AllUsers</title>
-
 <jsp:include page="head.jsp" />
-
 </head>
 
 <body>
-
-	<jsp:include page="navBar.jsp"></jsp:include><br><br>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
 	<c:forEach var="u" items="${user}">
 	User: ${u.username} <br>
@@ -33,7 +31,7 @@
 		</form><br><br>
 	</c:forEach>
 
-	<jsp:include page="foot.jsp" />
-
+<jsp:include page="foot.jsp" />
+</main>
 </body>
 </html>

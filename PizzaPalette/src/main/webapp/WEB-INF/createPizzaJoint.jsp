@@ -7,8 +7,10 @@
 <title>CreateAPizzaJoint</title>
 <jsp:include page="head.jsp" />
 </head>
+
 <body>
-	<jsp:include page="navBar.jsp"></jsp:include><br><br>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
 	
 	<h3>Create a Pizza Joint</h3><br>
 	
@@ -49,8 +51,7 @@
 
 	</form>
 
-
-	<jsp:include page="foot.jsp" />
-	
+<jsp:include page="foot.jsp" />
+</main>	
 </body>
 </html>

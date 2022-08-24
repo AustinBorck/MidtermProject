@@ -6,12 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>PizzaJoint</title>
+
 <jsp:include page="head.jsp" />
-<link rel="stylesheet" href="../css/myStylesheet.css">
+
 </head>
+
 <body>
 
 	<main class="container-fluid">
+	
 		<jsp:include page="navBar.jsp"></jsp:include><br> <br>
 
 		<h2>${pizzaJoint.name}</h2>
@@ -60,9 +63,8 @@
 					name="userRating" value="5"> 
 					<label for="rating5">5</label><br>
 
-				Comments: <input type="text" name="comments" required> Photos: <input
-					type="text" name="imageUrl"> <input type="hidden"
-					name="pizzaJointId" value="${pizzaJoint.id}"> <input
+				Comments: <input type="text" name="comments" required>
+					<input type="hidden" name="pizzaJointId" value="${pizzaJoint.id}"> <input
 					type="hidden" name="userId" value="${loggedInUser.id}"> <input
 					type="submit" value="Add Review">
 			</form>

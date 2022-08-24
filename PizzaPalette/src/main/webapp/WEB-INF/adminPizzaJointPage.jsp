@@ -6,11 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>PizzaJoint</title>
-<link rel="stylesheet" href="../css/myStylesheet.css">
 <jsp:include page="head.jsp" />
 </head>
+
 <body>
-	<jsp:include page="navBar.jsp"></jsp:include>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
 	<h2>${pizzaJoint.name}</h2>
 	<h3>APPROVED: ${pizzaJoint.approved}</h3>
@@ -34,7 +35,7 @@
 
 	<div class="image">
 		<img src="${pizzaJoint.image}" height= "400" style="width: 50%">
-</div>
+	</div>
 
 	<table id="table-1">
        <tbody>
@@ -55,7 +56,8 @@
 			</tbody>
 		</table>
 		
-		<jsp:include page="foot.jsp" />
 		
-	</body>
+<jsp:include page="foot.jsp" />
+</main>
+</body>
 </html>

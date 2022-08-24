@@ -5,20 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <title>PizzaPalette</title>
-
 <jsp:include page="head.jsp" />
-<link rel="stylesheet" href="css/myStylesheet.css">
 </head>
 
-
 <body>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-	<jsp:include page="navBar.jsp"></jsp:include><br><br>
-
-	<main class="container-fluid">
 		<h1>Pizza Palette</h1>
 		<br>
  		
@@ -51,7 +46,7 @@
 	<br> 
 	<br> 
  
- 	<jsp:include page="foot.jsp" />
-
+<jsp:include page="foot.jsp" />
+</main>
 </body>
 </html>

@@ -5,28 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Contact Us</title>
-
 <jsp:include page="head.jsp" />
-
 </head>
+
 <body>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-<jsp:include page="navBar.jsp"></jsp:include>
+	<h1>Contact Us</h1>
 
-<h1>Contact Us</h1>
-
-<form action="contacted.do" method="POST">
+	<form action="contacted.do" method="POST">
 					
-					<label for="message">Message:</label> 
-					<input type="text" id="contact" name="lname">
-					<br><br>
+		<label for="message">Message:</label> 
+		<input type="text" id="contact" name="lname">
+		<br><br>
 					
-					<input class="button" type="submit" value="Send message" />
+		<input class="button" type="submit" value="Send message" />
 
-				</form>
+	</form>
 
-<br>
 <jsp:include page="foot.jsp" />
-
+</main>
 </body>
 </html>

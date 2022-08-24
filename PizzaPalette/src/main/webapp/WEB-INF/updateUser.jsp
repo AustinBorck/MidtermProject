@@ -5,14 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Update</title>
-
 <jsp:include page="head.jsp" />
-
 </head>
 
 <body>
-
-	<jsp:include page="navBar.jsp" /><br><br>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp" /><br><br>
 
 	<h3>Update account</h3><br>
 	
@@ -27,6 +25,7 @@
 		<input type="submit" value="Update Account" />
 	</form>
 
-	<jsp:include page="foot.jsp" />
+<jsp:include page="foot.jsp" />
+</main>
 </body>
 </html>

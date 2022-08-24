@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Update</title>
-
 <jsp:include page="head.jsp" />
-
 </head>
-<body>
 
-<jsp:include page="navBar.jsp"></jsp:include>
+<body>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
+
 <h3>Update Pizza Joint</h3>
 	<form action="updatePizza.do" method="POST">
 		Restaurant Name: <input type="text" name="name" value="${pizzaJoint.name}" required><br>
@@ -47,11 +47,9 @@
 		
 		<input type="hidden" value="${pizzaJoint.id}" name="id">
 		<input type="submit" value="Update">
-
-
-
-
 	</form>
+	
 <jsp:include page="foot.jsp" />
+</main>
 </body>
 </html>

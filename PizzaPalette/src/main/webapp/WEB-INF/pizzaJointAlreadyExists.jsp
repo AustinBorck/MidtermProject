@@ -5,16 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Error</title>
-
 <jsp:include page="head.jsp" />
-
 </head>
+
 <body>
+<main class="container-fluid">
+<jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-	<jsp:include page="navBar.jsp"></jsp:include>
-
-<h3>Error, that Pizza Joint already exists.</h3>
+	<h3>Restaurant already exists.</h3>
 
 <jsp:include page="foot.jsp" />
+</main>
 </body>
 </html>
