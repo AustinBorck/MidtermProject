@@ -13,49 +13,48 @@
 <main class="container-fluid">
 <jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-	<h2>${pizzaJoint.name}</h2>
-	<h3>APPROVED: ${pizzaJoint.approved}</h3>
-	
-	<form action="updatePizzaJoint.do" method="GET">
-			<input type="hidden" value="${pizzaJoint.id}" name="updatePizzaJoint">
-	<input type="submit" value="EDIT" class="btn btn-warning">
-	</form>
-		<form action="reactivatePizzajoint.do" method="POST">
-		<input type="hidden" value="${pizzaJoint.id}" name="id">
-	<input type="submit" value="REACTIVATE" class="btn btn-secondary">
-	</form>
-	
-		<form action="deactivatePizzajoint.do" method="POST">
-		<input type="hidden" value="${pizzaJoint.id}" name="id">
-	<input type="submit" value="DEACTIVATE" class="btn btn-danger">
-	</form>
-	
-	
-	
+	<h2>${pizzaJoint.name}</h2><br>
 
-	<div class="image">
-		<img src="${pizzaJoint.image}" height= "400" style="width: 50%">
+	<div class="home row" >
+		<div class="col">
+			<img class="homeimg" src="${pizzaJoint.image}" height="500"
+				width="650"><br> <br>
+		</div>
+
+		<div class="pizzaInf col desc">
+			<ul>
+				<c:forEach var="att" items="${pizzaJoint.attributes}">
+					<li>${att.name}</li>
+				</c:forEach>
+			</ul>
+
+			${pizzaJoint.description}<br> <br>
+			${pizzaJoint.address.phoneNumber}<br>
+			${pizzaJoint.address.street}<br> 
+			${pizzaJoint.address.city},
+			${pizzaJoint.address.state}, 
+			${pizzaJoint.address.zip}<br> 
+			<a href="${pizzaJoint.website}" target=_blank>${pizzaJoint.website}</a><br>
+	
+			<h5>Approved: ${pizzaJoint.approved}</h5><br>
+			
+			<form action="updatePizzaJoint.do" method="GET">
+				<input type="hidden" value="${pizzaJoint.id}" name="updatePizzaJoint">
+				<input type="submit" value="EDIT" class="btn btn-warning">
+			</form>
+			
+			<form action="reactivatePizzajoint.do" method="POST">
+				<input type="hidden" value="${pizzaJoint.id}" name="id">
+				<input type="submit" value="REACTIVATE" class="btn btn-secondary">
+			</form>
+			
+			<form action="deactivatePizzajoint.do" method="POST">
+				<input type="hidden" value="${pizzaJoint.id}" name="id">
+				<input type="submit" value="DEACTIVATE" class="btn btn-danger">
+			</form>
+	
+		</div>
 	</div>
-
-	<table id="table-1">
-       <tbody>
-			<tr class="row-1">
-				<td class="column-1">
-					<p>${pizzaJoint.description}</p>
-
-				</td>
-
-	</tr>
-			<tr class="row-2">
-				<td class="column-2"><c:forEach var="att" items="${pizzaJoint.attributes}">
- 				${att.name},
-				</c:forEach></td>
-
-
-			</tr>
-			</tbody>
-		</table>
-		
 		
 <jsp:include page="foot.jsp" />
 </main>
