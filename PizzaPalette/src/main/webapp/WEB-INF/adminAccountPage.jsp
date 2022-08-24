@@ -69,7 +69,7 @@
 			</thead>
 
 			<tbody>
-				<c:forEach var="review" items="${reviews}">
+				<c:forEach var="review" items="${review}">
 					<tr>
 						<td>${review.pizzaJoint.name } </td>
 						<td>${loggedInUser.username}</td>
@@ -79,9 +79,9 @@
 
 						<c:if
 							test="${not empty sessionScope.loggedInUser && review.userReview.username == sessionScope.loggedInUser.username}">
-							<td><form action="deleteReview.do" method="POST">
+							<td><form action="deleteReviewFromAccount.do" method="POST">
 								<input type="hidden" name="reviewId" value="${review.id}">
-								<input type="hidden" name="pizzaId" value="${pizzaJoint.id}">
+								<input type="hidden" name="userId" value="${loggedInUser.id}">
 								<input type="submit" value="Delete">
 							</form></td>
 						</c:if>

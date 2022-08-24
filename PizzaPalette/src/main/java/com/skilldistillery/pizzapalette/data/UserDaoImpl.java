@@ -85,7 +85,6 @@ public class UserDaoImpl implements UserDAO {
 	public boolean deactivateReview(int id) {
 		boolean successfulDeac = false;
 		Review deacReview = em.find(Review.class, id);
-
 		if (deacReview != null) {
 			deacReview.setActive(false);
 			successfulDeac = true;
