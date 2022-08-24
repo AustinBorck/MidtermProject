@@ -6,10 +6,10 @@
 * [Austin Borck (Software Engineer, Repo Owner)](http://184.169.170.189/)
 
 ## Overview
-This is a week long team project that produced a full-stack website application for pizza enthusiasts called Pizza Palette. It was developed using Agile principles.
+This is a week long team project that produced a full-stack website application for pizza enthusiasts called Pizza Palette. It was developed using the Agile methodology.
 
 ### Description
-Pizza Palette is website where users can explore pizza restaurants and leave reviews about their experiences on the places they visited. A user must be registered in order to leave a review. The review is composed of a description, a rating from 0-5, and the ability to post a picture. Once the review is posted, the user has the ability to delete their review. The reviews posted on restaurants will also be posted in the user's homepage. An admin account was also created. The admin account has full control of both the users and the pizza restaurants. Furthermore, admins can deactivate and edit a user or restaurant . If a restaurant wants to be added to Pizza Palette, they must submit a form with the restaurant's details. An admin will then approve and publish the restaurant in Pizza Palette. The homepage will display clickable pictures of the top three rated restaurants of the week.
+Pizza Palette is website where users can explore pizza restaurants and leave reviews about their experiences on the places they've visited. A user must be registered in order to leave a review. The review is composed of a description, a rating from 0-5, and the ability to post a picture. Once the review is posted, the user has the ability to delete their review. The reviews posted on restaurants will also be posted in the user's homepage. The admin accounts have full control of both the users and the pizza restaurants. Furthermore, admins can deactivate and edit a user or restaurant. If a restaurant wants to be added to Pizza Palette, they must submit a form with the restaurant's details. An admin will then approve and publish the restaurant in Pizza Palette. The homepage will display clickable pictures of the top three rated restaurants of the week.
 #### Link to Pizza Palette
 * LINK
 ### Technologies Used
@@ -20,9 +20,11 @@ Pizza Palette is website where users can explore pizza restaurants and leave rev
 * MySQL Workbench
 * Spring Boot
 * JSP
+* JPQL
 * AWS
 * Bootstrap
-* Kanban Board
+* Trello
+* Figma
 
 ## Lessons Learned
 
