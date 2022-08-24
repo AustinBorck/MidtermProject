@@ -18,8 +18,10 @@
 		<br>
  		
 		<form action="searchKeyword.do" method="GET">
-			Search: <input class="form-control" type="text" name="keyword" /><br>
-			<input class="button" type="submit" value="Search" />
+			<div class="input-group">
+				<input class="form-control rounded" type="text" name="keyword" placeholder="Search for Restaurant" aria-label="Search" aria-describedby="search-addon">
+				<input type="submit" class="btn btn-outline-primary" value="search"/>
+			</div>
 		</form>
 		<br> <br>
 		

@@ -18,23 +18,23 @@
 		<div class="mb-3">
 
 			<form action="login.do" method="POST">
-				<label for="usernameinput" class="form-label">Username </label> <input
-					type="text" class="form-control" name="username" id="usernameinput"
-					placeholder="Username"> <br> <label
-					for="passwordinput" class="form-label">Password </label> <br>
+				<label for="usernameinput" class="form-label"></label> 
+				<input type="text" class="form-control" name="username" id="usernameinput"
+					placeholder="Username">
+					
+				<label for="passwordinput" class="form-label"></label>
 				<input type="password" class="form-control" name="password"
-					id="passwordinput" placeholder="Password"> <br>
+					id="passwordinput" placeholder="Password"><br>
+					
 				<div class="text-center">
-					<br> <input type="submit" value="Login"
-						class="btn btn-primary">
+					<input type="submit" value="Login" class="btn btn-primary">
 				</div>
 			</form>
-		</div>
-		<br> <br>
+			
+		</div><br>
 
 		<div class="text-center">
-			New to PizzaPalette? <a href="createAccountPage.do">Create an
-				account</a>
+			New to PizzaPalette? <a href="createAccountPage.do">Create an account</a>
 		</div>
 		
 <jsp:include page="foot.jsp" />
