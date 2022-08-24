@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+body {
+ font-family: monaco;
+}
+
+h1 {
+	font-family: monaco, bold;
+	text-align: center;
+}
+
 .top3 {
   position: relative;
   max-width: 800px;
@@ -54,7 +63,8 @@ ul {
  text-align: center;
 }​
 
-h1 {
-	
+.logo{
+	float: left;
 }
+
 
