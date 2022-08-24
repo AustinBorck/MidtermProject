@@ -121,7 +121,11 @@ public class UserController {
 
 	@RequestMapping(path = "getAllUsers.do")
 	public String getAllUsers(Model model, int userId) {
-		model.addAttribute("user", userDao.findUsername(userId));
+		User user = userDao.findUsername(userId);
+		if (user == null) {
+			return "noRestaurantResults";
+		}
+		model.addAttribute("user", user);
 		return "allUsers";
 	}
 	

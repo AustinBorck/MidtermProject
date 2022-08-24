@@ -27,13 +27,17 @@
 	${loggedInUser.lastName}<br><br>
 	
 	<form action="getAllUsers.do" method="GET">
-		Search for a User by ID<br> <input class="form-control" type="number" name="userId">
-		<input type="submit" value="Search" class="btn btn-info">
+		<div class="input-group">
+		<input class="form-control rounded" type="number" name="userId" placeholder="Search by user ID" aria-label="Search" aria-describedby="search-addon">
+		<input type="submit" class="btn btn-outline-primary" value="search"/>
+		</div>
 	</form><br>
 	
 	<form action="pizzaJointById.do" method="GET">
-		Search for a PizzaJoint by ID<br> <input class="form-control" type="number" name="pizzaJointId">
-		<input type="submit" value="Search" class="btn btn-info">
+		<div class="input-group">
+		<input class="form-control rounded" type="number" name="pizzaJointId" placeholder="Search by restaurant ID" aria-label="Search" aria-describedby="search-addon">
+		<input type="submit" class="btn btn-outline-primary" value="search"/>
+		</div>
 	</form><br>
 	
 	<form action="createPizza.do" method="GET">
