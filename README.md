@@ -1,25 +1,17 @@
 # MidtermProject
 ## Pizza Palette
 ### Team
-* Tiarra Blandin (Developer, DBA)
-* Diego Escutia (Developer, Scrum Master)
-* Austin Borck (Developer, Repo Owner)
+* [Tiarra Blandin (Software Engineer, DBA)](http://18.144.181.105)
+* [Diego Escutia (Software Engineer, Scrum Master)](http://44.209.51.251/)
+* [Austin Borck (Software Engineer, Repo Owner)](http://184.169.170.189/)
 
 ## Overview
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-### Description
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-#### How to Login
-* list
-* of How
-* to Login
-#### Link
-* LINK
-## Project Structure
+This is a week long team project that produced a full-stack website application for pizza enthusiasts called Pizza Palette. It was developed using Agile principles.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-### ER Diagram
-PICTURE
+### Description
+Pizza Palette is website where users can explore pizza restaurants and leave reviews about their experiences on the places they visited. A user must be registered in order to leave a review. The review is composed of a description, a rating from 0-5, and the ability to post a picture. Once the review is posted, the user has the ability to delete their review. The reviews posted on restaurants will also be posted in the user's homepage. An admin account was also created. The admin account has full control of both the users and the pizza restaurants. Furthermore, admins can deactivate and edit a user or restaurant . If a restaurant wants to be added to Pizza Palette, they must submit a form with the restaurant's details. An admin will then approve and publish the restaurant in Pizza Palette. The homepage will display clickable pictures of the top three rated restaurants of the week.
+#### Link to Pizza Palette
+* LINK
 ### Technologies Used
 * Git
 * Gradle
@@ -28,26 +20,13 @@ PICTURE
 * MySQL Workbench
 * Spring Boot
 * JSP
+* AWS
+* Bootstrap
+* Kanban Board
 
 ## Lessons Learned
 
-#### TODO BIG LESSON LEARNED
-desc how we overcame it
-#### TODO BIG LESSON LEARNED
-desc how we overcame it
-#### TODO BIG LESSON LEARNED
-desc how we overcame it
-
-## Stretch Goals
-
-#### Title of goal
-HOW WE MADE IT HAPPEN
-#### Title of goal
-HOW WE MADE IT HAPPEN
-#### Title of goal
-HOW WE MADE IT HAPPEN
-## How to Download and Run
-
-* Download
-* Set-up
-* install DB
+- Creation and Implementation of an SQL database.
+- The ability to modify the database through Java based programs.
+- Further developed CSS and BootStrap styling.
+- Deployment of full-stack website to AWS
