@@ -103,7 +103,6 @@ public class UserController {
 		session.removeAttribute("loggedInUser");
 		updatedUser = userDao.findUsername(updateAccount);
 		session.setAttribute("loggedInUser", updatedUser);
-
 		return "userHome";
 	}
 
@@ -121,10 +120,14 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "getAllUsers.do")
-	public String getAllUsers(Model model) {
-		model.addAttribute("user", userDao.findAllUsers());
+	public String getAllUsers(Model model, int userId) {
+		model.addAttribute("user", userDao.findUsername(userId));
 		return "allUsers";
 	}
+	
+	
+	
+	
 	@RequestMapping(path = "deleteReviewFromAccount.do", method = RequestMethod.POST)
 	public String deleteReviewUserPage(Model model, int reviewId, int userId) {
 		User user = userDao.findUsername(userId);

@@ -30,12 +30,17 @@
 	<input type="submit" value="Show all Users" class="btn btn-info">
 	</form><br>
 	
+	<form action="getAllUsers.do" method="GET">
+		Search for a User by ID<br> <input type="number" name="userId">
+		<input type="submit" value="Search" class="btn btn-info">
+	</form><br>
+	
 	<form action="createPizza.do" method="GET">
 	<input type="submit" value="Create New PizzaJoint" class="btn btn-info">
 	</form><br>
 	
 	<form action="pizzaJointById.do" method="GET">
-		Search for a PizzaJoint by ID<br> <input type="text" name="pizzaJointId">
+		Search for a PizzaJoint by ID<br> <input type="number" name="pizzaJointId">
 		<input type="submit" value="Search" class="btn btn-info">
 	</form><br>
 	

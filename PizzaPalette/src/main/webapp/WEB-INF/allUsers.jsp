@@ -13,23 +13,30 @@
 <main class="container-fluid">
 <jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-	<c:forEach var="u" items="${user}">
-	User: ${u.username} <br>
-	First Name: ${u.firstName} <br>
-	Last Name: ${u.lastName} <br>
-	Active Status: ${u.enabled}<br>
-	User Role: ${u.role}<br><br>
+<strong> User Id </strong><br>
+	${user.id}<br><br>
+<strong> Username </strong><br>
+	${user.username}<br><br>
+	<strong> Password </strong><br>
+	${user.password}<br><br>
+	<strong> First Name </strong><br>
+	${user.firstName}<br><br>
+	<strong> Last Name </strong><br>
+	${user.lastName}<br><br>
+	<strong> Active Status </strong><br>
+	${user.enabled}<br><br>
+	<strong> User Role </strong><br>
+	${user.role}<br><br>
 	
 		<form action="updateAccountPage.do">
-			<input type="hidden" value="${u.id}" name="updateAccount" /> <input
+			<input type="hidden" value="${user.id}" name="updateAccount" /> <input
 				type="submit" value="Update Account" />
 		</form>
 		
 		<form action="deactivateAccount.do" method="POST">
-			<input type="hidden" value="${u.id}" name="deactivateAccount" /> <input
+			<input type="hidden" value="${user.id}" name="deactivateAccount" /> <input
 				type="submit" value="Deactivate Account" />
 		</form><br><br>
-	</c:forEach>
 
 <jsp:include page="foot.jsp" />
 </main>
