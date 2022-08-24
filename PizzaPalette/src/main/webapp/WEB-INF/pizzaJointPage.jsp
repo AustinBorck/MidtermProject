@@ -90,11 +90,11 @@
 
 						<c:if
 							test="${not empty sessionScope.loggedInUser && review.userReview.username == sessionScope.loggedInUser.username}">
-							<form action="deleteReview.do" method="POST">
+							<td><form action="deleteReview.do" method="POST">
 								<input type="hidden" name="reviewId" value="${review.id}">
 								<input type="hidden" name="pizzaId" value="${pizzaJoint.id}">
 								<input type="submit" value="Delete">
-							</form>
+							</form></td>
 						</c:if>
 
 					</tr>
