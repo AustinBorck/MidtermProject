@@ -31,7 +31,7 @@
 		</form>
 		<br> <br>
 		
-		<h3>This Week's Top Rated Pizza Joints</h3>
+		<h3 class="text-center">This Week's Top Rated Pizza Joints</h3>
 		<br> <br>
 
 	</main>
@@ -40,7 +40,8 @@
 		
 		<c:forEach var="top" items="${top}">
 	<div class="top3">
-			<a href= "singleResult.do?id=${top.id}" ><img alt="${top.name}" src="${top.image}" class="place" style="width:100%;"></a>
+			<a href= "singleResult.do?id=${top.id}" >
+			<img alt="${top.name}" src="${top.image}" width="200" height="200" class="place" ></a>
 			
 			<div class="picDesc"><h3>${top.name}</h3> <br><br>
 			
@@ -48,9 +49,6 @@
 		
 	</div>
 		</c:forEach>
-		
-	
-	
 	<br> 
 	<br> 
  
