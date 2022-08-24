@@ -25,7 +25,7 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="about.do">About</a>
         </li>
-        <li class="nav-item justify-content-end">
+        <li class="nav-item">
           <a class="nav-link text-white" href="loginButton.do">Login</a>
         </li>
       </ul>
