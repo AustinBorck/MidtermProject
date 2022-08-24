@@ -17,9 +17,6 @@
           <a class="nav-link active text-white" aria-current="page" href="index.do">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="loginButton.do">Log In</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link text-white" href="loginButton.do">Account</a>
         </li>
         <li class="nav-item">
@@ -27,6 +24,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="about.do">About</a>
+        </li>
+        <li class="nav-item justify-content-end">
+          <a class="nav-link text-white" href="loginButton.do">Login</a>
         </li>
       </ul>
     </div>
