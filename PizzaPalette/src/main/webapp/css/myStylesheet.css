@@ -8,13 +8,11 @@
   padding:0px;
   margin-left: auto;
   margin-right: auto;
-  
-  
 }
 
-.top3 place {vertical-align: middle;
+.top3 place {
+	vertical-align: middle;
 	border-width:9px;
-	
 }
 
 .top3 .picDesc {
@@ -36,14 +34,9 @@ ul {
   list-style-type: none;
  }
  
- .home{
-/*  	white-space: nowrap;
- *//*  	display: inline-block;
- */ }
- 
  .homeimg{
-/*  	float: left;
- */ }
+ 	float: left;
+ }
  
  .addComment{
  	text-align: center;
@@ -53,17 +46,11 @@ ul {
   color: orange;
 }
 
-.pizzaInf{
+.pizzaInf {
 	text-align: center;
 }
  
 .desc {
  text-align: center;
 }​
-
-
-
-
-
-
 
