@@ -15,20 +15,20 @@
 	<h2>${pizzaJoint.name}</h2>
 	<h3>APPROVED: ${pizzaJoint.approved}</h3>
 	
-	
-		<form action="deactivatePizzajoint.do" method="POST">
-		<input type="hidden" value="${pizzaJoint.id}" name="id">
-	<input type="submit" value="DEACTIVATE">
+	<form action="updatePizzaJoint.do" method="GET">
+			<input type="hidden" value="${pizzaJoint.id}" name="updatePizzaJoint">
+	<input type="submit" value="EDIT" class="btn btn-warning">
 	</form>
 		<form action="reactivatePizzajoint.do" method="POST">
 		<input type="hidden" value="${pizzaJoint.id}" name="id">
-	<input type="submit" value="REACTIVATE">
+	<input type="submit" value="REACTIVATE" class="btn btn-secondary">
 	</form>
 	
-	<form action="updatePizzaJoint.do" method="GET">
-			<input type="hidden" value="${pizzaJoint.id}" name="updatePizzaJoint">
-	<input type="submit" value="EDIT">
+		<form action="deactivatePizzajoint.do" method="POST">
+		<input type="hidden" value="${pizzaJoint.id}" name="id">
+	<input type="submit" value="DEACTIVATE" class="btn btn-danger">
 	</form>
+	
 	
 	
 

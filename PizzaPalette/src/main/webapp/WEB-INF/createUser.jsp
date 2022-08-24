@@ -14,15 +14,20 @@
 
 	<jsp:include page="navBar.jsp"></jsp:include><br><br>
 	
+	<div class="text-center">
 	<h3>Create an Account</h3><br>
-	
 	<form action="createAccount.do" method="POST">
-		First Name: <input type="text" name="firstname" required><br><br>
-		Last Name: <input type="text" name="lastname" required><br><br>
-		Username: <input type="text" name="username" required><br><br>
-		Password: <input type="password" name="password" required><br><br>
-		<input type="submit" value="Create Account">
+		First Name<br>
+		 <input type="text" name="firstname" required><br><br>
+		Last Name <br>
+		 <input type="text" name="lastname" required><br><br>
+		Username <br>
+		 <input type="text" name="username" required><br><br>
+		Password <br>
+		 <input type="password" name="password" required><br><br>
+		<input type="submit" value="Create Account" class="btn btn-primary">
 	</form>
+	</div>
 
 	<jsp:include page="foot.jsp" />
 	
