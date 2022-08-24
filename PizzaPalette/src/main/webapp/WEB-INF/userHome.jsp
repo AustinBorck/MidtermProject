@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +38,47 @@
 	<input type="submit" value="Deactivate Account" class="btn btn-danger"/>
 	</form>
 </div>
+	
+	
+	<table class="table table-striped table-hover table-md">
+			<thead>
+				<tr>
+					<th scope="col">Pizza Joint</th>
+					<th scope="col">User</th>
+					<th scope="col">Date</th>
+					<th scope="col">Rating</th>
+					<th scope="col">Comments</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<c:forEach var="review" items="${reviews}">
+					<tr>
+						<td>${review.pizzaJoint.name } </td>
+						<td>${loggedInUser.username}</td>
+						<td>${review.reviewDate}</td>
+						<td>${review.rating}</td>
+						<td>${review.comments}</td>
+
+						<c:if
+							test="${not empty sessionScope.loggedInUser && review.userReview.username == sessionScope.loggedInUser.username}">
+							<td><form action="deleteReview.do" method="POST">
+								<input type="hidden" name="reviewId" value="${review.id}">
+								<input type="hidden" name="pizzaId" value="${pizzaJoint.id}">
+								<input type="submit" value="Delete">
+							</form></td>
+						</c:if>
+
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	
+	
+	
+	
+	
 	
 	<jsp:include page="foot.jsp" />
 	

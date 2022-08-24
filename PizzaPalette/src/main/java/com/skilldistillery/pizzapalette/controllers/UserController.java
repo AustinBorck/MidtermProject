@@ -52,8 +52,10 @@ public class UserController {
 			session.setAttribute("loggedInUser", user);
 			
 			if(user.getRole().contains("admin")) {
+				model.addAttribute("review", userDao.findUserReviews(user.getId()));
 				return "adminAccountPage";
 			}else {
+				model.addAttribute("review", userDao.findUserReviews(user.getId()));
 			return "userHome";
 			}
 		}

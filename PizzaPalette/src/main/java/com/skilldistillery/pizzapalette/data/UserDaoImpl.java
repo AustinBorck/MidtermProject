@@ -97,4 +97,30 @@ public class UserDaoImpl implements UserDAO {
 	public User findUsername(int id) {
 			return em.find(User.class, id);
 	}
+	
+	
+	@Override
+	public List<Review> findUserReviews(int id) {
+		User user = em.find(User.class, id);
+		List<Review> reviews = user.getReviews();
+		return reviews;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

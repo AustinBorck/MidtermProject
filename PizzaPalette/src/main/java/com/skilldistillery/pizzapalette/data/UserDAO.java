@@ -26,4 +26,6 @@ public interface UserDAO {
 	
 	public User findUsername(int id);
 	
+	public List<Review> findUserReviews(int id);
+	
 }
