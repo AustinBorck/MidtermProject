@@ -14,7 +14,7 @@
 
 	<h1>Contact Us</h1>
 
-	<form action="contacted.do" method="POST">
+	<form action="mailto: PizzaPalette123@Yahoo.com" method="POST">
 					
 		<textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Type message here."></textarea><br>
 					
