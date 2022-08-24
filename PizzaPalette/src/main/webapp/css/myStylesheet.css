@@ -5,8 +5,8 @@ body {
 }
 
 h1 {
-	font-family: monaco, bold;
-	text-align: center;
+  font-family: monaco, bold;
+  text-align: center;
 }
 
 .top3 {
@@ -66,9 +66,4 @@ ul {
 .logo{
 	float: left;
 }
-
-h1 {
-	font-family: monaco;
-}
-
 
