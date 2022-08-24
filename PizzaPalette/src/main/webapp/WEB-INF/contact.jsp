@@ -16,11 +16,9 @@
 
 	<form action="contacted.do" method="POST">
 					
-		<label for="message">Message:</label> 
-		<input type="text" id="contact" name="lname">
-		<br><br>
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Type message here."></textarea><br>
 					
-		<input class="button" type="submit" value="Send message" />
+		<input class="btn btn-primary" type="submit" value="Send message" />
 
 	</form>
 
