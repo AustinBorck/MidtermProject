@@ -85,7 +85,6 @@ public class UserDaoImpl implements UserDAO {
 	public boolean deactivateReview(int id) {
 		boolean successfulDeac = false;
 		Review deacReview = em.find(Review.class, id);
-
 		if (deacReview != null) {
 			deacReview.setActive(false);
 			successfulDeac = true;
@@ -97,4 +96,30 @@ public class UserDaoImpl implements UserDAO {
 	public User findUsername(int id) {
 			return em.find(User.class, id);
 	}
+	
+	
+	@Override
+	public List<Review> findUserReviews(int id) {
+		User user = em.find(User.class, id);
+		List<Review> reviews = user.getReviews();
+		return reviews;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

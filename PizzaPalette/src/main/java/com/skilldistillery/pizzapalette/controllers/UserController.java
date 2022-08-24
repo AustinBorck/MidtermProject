@@ -21,25 +21,23 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
-	
-	@Autowired 
+
+	@Autowired
 	private PizzaJointDAO pizzaJointDao;
 
-//	@RequestMapping(path = { "/", "index.do" })
-//	public String home(Model model) {
-//		return "index";
-//	}
 
 	@RequestMapping(path = "loginButton.do", method = RequestMethod.GET)
-	public String goToLoginFrom(HttpSession session) {
+	public String goToLoginFrom(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null && user.getRole().contains("admin")) {
+			model.addAttribute("review", userDao.findUserReviews(user.getId()));
 			return "adminAccountPage";
-		} else if (user != null){
+		} else if (user != null) {
+			model.addAttribute("review", userDao.findUserReviews(user.getId()));
 			return "userHome";
-		}else {
+		} else {
 			return "loginPage";
-			
+
 		}
 	}
 
@@ -50,11 +48,14 @@ public class UserController {
 			return "loginPage";
 		} else {
 			session.setAttribute("loggedInUser", user);
-			
-			if(user.getRole().contains("admin")) {
+			User userOn = (User) session.getAttribute("loggedInUser");
+		
+			if (user.getRole().contains("admin")) {
+				model.addAttribute("review", userDao.findUserReviews(userOn.getId()));
 				return "adminAccountPage";
-			}else {
-			return "userHome";
+			} else {
+				model.addAttribute("review", userDao.findUserReviews(userOn.getId()));
+				return "userHome";
 			}
 		}
 	}
@@ -66,30 +67,11 @@ public class UserController {
 		return "index";
 	}
 
-//	@RequestMapping("searchKeyword.do")
-//	public String searchByKeyword(Model model, String keyword) {
-//		List<PizzaJoint> pizzajoints = userDao.findPizzaJoint(keyword);
-//		if(pizzajoints.size() > 0) {
-//		model.addAttribute("results", pizzajoints);
-//		return "result";
-//		}else {
-//			return "noResults";
-//		}
-//	}
-//	@RequestMapping("singleResult.do")
-//	public String singleResult(Model model, int id) {
-//		PizzaJoint pizzaJoint = null;
-//		pizzaJoint = userDao.findSinglePizzaJoint(id);
-//		model.addAttribute("pizzaJoint", pizzaJoint);
-//			return "pizzaJointPage";
-//		}
-	
 	@RequestMapping("createAccountPage.do")
 	public String createAccountPage(Model model) {
 		return "createUser";
 	}
-	
-	
+
 	@RequestMapping(path = "createAccount.do", method = RequestMethod.POST)
 	public String createAccount(Model model, String username, String password, String firstname, String lastname) {
 		User user = new User();
@@ -99,22 +81,22 @@ public class UserController {
 		user.setFirstName(firstname);
 		user.setLastName(lastname);
 		user.setRole("User");
-		
+
 		try {
 			userDao.addUser(user);
 		} catch (Exception e) {
 			return "userNameTaken";
 		}
 		return "loginPage";
-		
+
 	}
-	
+
 	@RequestMapping(path = "updateAccountPage.do")
 	public String updateAccountButton(Model model, int updateAccount) {
 		model.addAttribute("user", userDao.findUsername(updateAccount));
 		return "updateUser";
 	}
-	
+
 	@RequestMapping(path = "update.do", method = RequestMethod.POST)
 	public String update(Model model, int updateAccount, User updatedUser, HttpSession session) {
 		model.addAttribute("loggedInUser", userDao.editUser(updateAccount, updatedUser));
@@ -124,43 +106,49 @@ public class UserController {
 
 		return "userHome";
 	}
-	
+
 	@RequestMapping(path = "deactivateAccount.do", method = RequestMethod.POST)
 	public String deactivate(Model model, int deactivateAccount, HttpSession session) {
 		User user = userDao.findUsername(deactivateAccount);
 		session.removeAttribute("loggedInUser");
 		userDao.deactivateUser(deactivateAccount);
-		if(user.getRole().contains("admin")) {
+		if (user.getRole().contains("admin")) {
 			return "allUsers";
 		} else {
-		model.addAttribute("top", pizzaJointDao.topRated(3));
-		return "index";
+			model.addAttribute("top", pizzaJointDao.topRated(3));
+			return "index";
+		}
 	}
-	}
-	
-	@RequestMapping(path="getAllUsers.do")
+
+	@RequestMapping(path = "getAllUsers.do")
 	public String getAllUsers(Model model) {
 		model.addAttribute("user", userDao.findAllUsers());
 		return "allUsers";
 	}
+	@RequestMapping(path = "deleteReviewFromAccount.do", method = RequestMethod.POST)
+	public String deleteReviewUserPage(Model model, int reviewId, int userId) {
+		User user = userDao.findUsername(userId);
+		pizzaJointDao.deleteReview(reviewId);
+		model.addAttribute("review", userDao.findUserReviews(userId));
+		if(user.getRole().contains("admin")) {
+			return "adminAccountPage";
+		}
+		
+		return "userHome";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
