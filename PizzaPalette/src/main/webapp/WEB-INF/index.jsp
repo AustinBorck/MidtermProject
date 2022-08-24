@@ -13,8 +13,14 @@
 <body>
 <main class="container-fluid">
 <jsp:include page="navBar.jsp"></jsp:include><br><br>
-
-		<h1 style= "font-family: monaco">Pizza Palette</h1>
+		<table>
+		<tbody>
+		<tr>
+			<td><img alt="" src="logo.png" width="200" height="200"></td>
+			<td> <h1 class="text-center" >Pizza Palette</h1></td>
+		</tr>
+		</tbody>
+		</table>
 		<br>
  		
 		<form action="searchKeyword.do" method="GET">
@@ -36,7 +42,7 @@
 	<div class="top3">
 			<a href= "singleResult.do?id=${top.id}" ><img alt="${top.name}" src="${top.image}" class="place" style="width:100%;"></a>
 			
-			<div class="picDesc"><h3>${top.name}</h3> <br>
+			<div class="picDesc"><h3>${top.name}</h3> <br><br>
 			
 			</div>
 		
