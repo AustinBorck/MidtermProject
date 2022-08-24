@@ -141,6 +141,8 @@ public class PizzaJointController {
 	public String deleteReview (Model model, int reviewId, int pizzaId) {
 		pizzaDao.deleteReview(reviewId);
 		model.addAttribute("pizzaJoint", pizzaDao.findSinglePizzaJoint(pizzaId));
+		model.addAttribute("reviews", pizzaDao.findPizzaJointReviews(pizzaId));
+
 		return "pizzaJointPage";
 	}
 	
