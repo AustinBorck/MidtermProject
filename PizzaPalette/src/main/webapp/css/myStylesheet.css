@@ -9,29 +9,9 @@ h1 {
   text-align: center;
 }
 
-.top3 {
-  position: relative;
-  max-width: 800px;
-  max-height: 800px;
-  margin-top: 1em;;
-  padding:0px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .top3 place {
-	vertical-align: middle;
-	border-width:9px;
-}
-
-.top3 .picDesc {
-  position: absolute;
-  bottom: 0;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1;
-  width: 200px;
-  padding: 1px;
+  position: relative;
+  float: left;
 }
 
 table, td {

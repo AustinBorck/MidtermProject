@@ -37,18 +37,17 @@
 	</main>
 	
 	
-		
+		<table>
+		<tr>
 		<c:forEach var="top" items="${top}">
-	<div class="top3">
-			<a href= "singleResult.do?id=${top.id}" >
-			<img alt="${top.name}" src="${top.image}" width="200" height="200" class="place" ></a>
-			
-			<div class="picDesc"><h3>${top.name}</h3> <br><br>
-			
+			<div class="top3">
+				<tr><a href= "singleResult.do?id=${top.id}" >
+				<img alt="${top.name}" src="${top.image}" width="200" height="200" class="place" ></a><br><br>
+				${top.name}</tr>
 			</div>
-		
-	</div>
 		</c:forEach>
+		</tr>
+		</table>
 	<br> 
 	<br> 
  
