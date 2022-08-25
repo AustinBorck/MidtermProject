@@ -37,7 +37,7 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 			att.setId(Integer.parseInt(ids));
 			newAtts.add(att);
 		}
-		Address newAddy = new Address();
+		Address newAddy = pizzaJoint.getAddress();
 		newAddy.setStreet(street);
 		newAddy.setCity(city);
 		newAddy.setState(state);
