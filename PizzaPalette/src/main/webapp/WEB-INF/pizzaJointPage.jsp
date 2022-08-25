@@ -35,9 +35,30 @@
 				<br> <br> ${pizzaJoint.address.phoneNumber}<br>
 				${pizzaJoint.address.street}<br> ${pizzaJoint.address.city},
 				${pizzaJoint.address.state}, ${pizzaJoint.address.zip}<br> <a
-					href="${pizzaJoint.website}" target=_blank>${pizzaJoint.website}</a>
+					href="${pizzaJoint.website}" target=_blank>${pizzaJoint.website}</a> <br><br>
+			
+			
+			<iframe
+ 				 width="300"
+ 			     height="200"
+				  style="border:0"
+				  loading="lazy"
+				  allowfullscreen
+				  referrerpolicy="no-referrer-when-downgrade"
+				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-NjVyReaDO1kPcEnzs59c97uUPTUdCrc
+				    &q=${pizzaJoint.address.street},${pizzaJoint.address.city},${pizzaJoint.address.state},${pizzaJoint.address.zip}">
+			</iframe>
+			
+			
+			
+			
 			</div>
 		</div>
+
+
+
+
+
 
 		<div class="addComment">
 			<br>
@@ -101,6 +122,8 @@
 		</table>
 
 
+
+  
 
 <jsp:include page="foot.jsp" />
 </main>
