@@ -131,10 +131,16 @@ public class PizzaJointDaoImpl implements PizzaJointDAO {
 		
 	}
 
-	
+	@Override
 	public List<PizzaJoint> topThree() {
 		String jpql = "SELECT p FROM PizzaJoint p";
 		return em.createQuery(jpql, PizzaJoint.class).getResultList();
+	}
+	
+	@Override
+	public List<Attribute> getAllAtts() {
+		String jpql = "SELECT a FROM Attribute a ORDER BY a.category.name";
+		return em.createQuery(jpql, Attribute.class).getResultList();
 	}
 
 	@Override

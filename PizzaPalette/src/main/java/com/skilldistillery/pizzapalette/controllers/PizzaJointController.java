@@ -52,6 +52,8 @@ public class PizzaJointController {
 	
 	@RequestMapping("createPizza.do")
 	public String createPizzaJoint(Model model) {
+		model.addAttribute("attributes", pizzaDao.getAllAtts());
+		
 		return "createPizzaJoint";
 	}
 	
@@ -118,6 +120,7 @@ public class PizzaJointController {
 	@RequestMapping(path="updatePizzaJoint.do")
 	public String updatePizzaJoint (Model model, int updatePizzaJoint) {
 		PizzaJoint updateMe = pizzaDao.findSinglePizzaJoint(updatePizzaJoint);
+		model.addAttribute("attributes", pizzaDao.getAllAtts());
 		model.addAttribute("pizzaJoint", updateMe);
 		return "updatePizzaJoint";
 	}

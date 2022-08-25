@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,25 +21,19 @@
 		Website URL: <input type="text" name="website" required><br><br>
 		Description: <input type="text" name="description" required><br><br>
 		Special Features:<br>
-		<input type="checkbox" name="attributes" value="1" required> Delivery
-		<input type="checkbox" name="attributes" value="2"> Dine-in
-		<input type="checkbox" name="attributes" value="3"> Carry-out
-		<input type="checkbox" name="attributes" value="18"> Take-and-bake<br>
-		<input type="checkbox" name="attributes" value="4"> New York style
-		<input type="checkbox" name="attributes" value="5"> Brooklyn style
-		<input type="checkbox" name="attributes" value="6"> Chicago style
-		<input type="checkbox" name="attributes" value="7"> California style
-		<input type="checkbox" name="attributes" value="8"> Wood-fired
-		<input type="checkbox" name="attributes" value="9"> Deep-dish
-		<input type="checkbox" name="attributes" value="10"> Sicilian style
-		<input type="checkbox" name="attributes" value="11"> Thin-crust
-		<input type="checkbox" name="attributes" value="12"> Detriot style
-		<input type="checkbox" name="attributes" value="13"> Neapolitan style
-		<input type="checkbox" name="attributes" value="19"> Colorado style<br>
-		<input type="checkbox" name="attributes" value="14"> Vegan options
-		<input type="checkbox" name="attributes" value="15"> Gluten-free options
-		<input type="checkbox" name="attributes" value="16"> Kosher options
-		<input type="checkbox" name="attributes" value="17"> Keto options <br>
+		
+		<hr>
+		<c:set var="category" value="${attributes.get(0).category.name}" />
+		
+		
+		<c:forEach var="a" items="${attributes}">
+				<input type="checkbox" name="attributes" value="${a.id}"> ${a.name}
+				<c:if test="${a.category.name != category}">
+				<br>
+				<c:set var="category" value="${a.category.name}"/>
+				</c:if>
+		
+		</c:forEach>
 		
 		<br>Street: <input type="text" name="street" required><br><br>
 		City: <input type="text" name="city" required>

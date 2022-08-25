@@ -35,4 +35,8 @@ public interface PizzaJointDAO {
 			String zip, String[] attributes);
 		
 	public boolean deleteReview(int reviewId);
+
+	List<PizzaJoint> topThree();
+
+	List<Attribute> getAllAtts();
 }
