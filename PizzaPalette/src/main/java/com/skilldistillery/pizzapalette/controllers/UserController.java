@@ -145,7 +145,14 @@ public class UserController {
 	}
 	
 	
+	@RequestMapping(path = "deactivateAccountAdmin.do", method = RequestMethod.POST)
+	public String deactivateAccountFromAdmin(Model model, int deactivateAccount, HttpSession session) {
+		User user = userDao.findUsername(deactivateAccount);
+		userDao.deactivateUser(deactivateAccount);
+		model.addAttribute("user", user);
+			return "allUsers";
 	
+	}
 	
 	
 	

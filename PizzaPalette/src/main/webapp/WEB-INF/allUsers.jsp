@@ -33,7 +33,7 @@
 				type="submit" value="Update Account" />
 		</form>
 		
-		<form action="deactivateAccount.do" method="POST">
+		<form action="deactivateAccountAdmin.do" method="POST">
 			<input type="hidden" value="${user.id}" name="deactivateAccount" /> <input
 				type="submit" value="Deactivate Account" />
 		</form><br><br>
