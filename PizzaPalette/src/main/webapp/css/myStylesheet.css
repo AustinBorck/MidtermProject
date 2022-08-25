@@ -1,17 +1,19 @@
 @charset "UTF-8";
 
 .header{
-  background-image: url("file:///Users/tiarrablandin/SD/Java/MidtermProject/PizzaPalette/src/main/webapp/My%20project-1.jpg");
-  background-position: center;
   background-repeat: no-repeat;
+background-image: url('../background.jpg');
+background-position: center;
+ background-repeat: no-repeat;
   background-size: cover;
-  background-color: gray;
-}
+background-color: gray;
+ }
 
 body {
- font-family: monaco;
- background-color: blue;
-}
+font-family: monaco;
+background-color: #b25969;
+/*  background-color: light-gray;
+ */}
 
 h1 {
   font-family: monaco, bold;

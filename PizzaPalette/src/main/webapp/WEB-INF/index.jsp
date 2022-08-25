@@ -16,12 +16,12 @@
 		<br>
 		
 		<div class="header">
-		<table>
+		<table class="header">
 			<tbody>
 				<tr>
 					<td><img alt="" src="logo.png" width="200" height="200"></td>
-					<td>
-						<h1 class="text-center">Pizza Palette</h1>
+					<td class="col-12">
+						<h1 class="text-center text-white">Pizza Palette</h1>
 					</td>
 				</tr>
 			</tbody>
