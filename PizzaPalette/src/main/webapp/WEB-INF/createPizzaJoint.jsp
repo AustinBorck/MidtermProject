@@ -28,6 +28,7 @@
 		
 		<c:forEach var="a" items="${attributes}">
 				<input type="checkbox" name="attributes" value="${a.id}"> ${a.name}
+			
 				<c:if test="${a.category.name != category}">
 				<br>
 				<c:set var="category" value="${a.category.name}"/>
