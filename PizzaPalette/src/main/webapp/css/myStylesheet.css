@@ -1,7 +1,16 @@
 @charset "UTF-8";
 
+.header{
+  background-image: url("file:///Users/tiarrablandin/SD/Java/MidtermProject/PizzaPalette/src/main/webapp/My%20project-1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: gray;
+}
+
 body {
  font-family: monaco;
+ background-color: blue;
 }
 
 h1 {
@@ -28,7 +37,7 @@ ul {
  } */
  
  .addComment{
- 	text-align: center;
+   text-align: center;
  }
  
  .checked {

@@ -14,6 +14,8 @@
 	<main class="container-fluid">
 		<jsp:include page="navBar.jsp"></jsp:include><br>
 		<br>
+		
+		<div class="header">
 		<table>
 			<tbody>
 				<tr>
@@ -24,6 +26,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</div>
 		<br>
 
 		<form action="searchKeyword.do" method="GET">
@@ -44,7 +47,7 @@
 
 			<c:forEach var="top" items="${top}">
 				<div class="col top3">
-					<a href="singleResult.do?id=${top.id}"> <img class="topImg" alt="${top.name}"
+					<a href="singleResult.do?id=${top.id}"> <img class="topImg img-thumbnail" alt="${top.name}"
 						src="${top.image}" ></a><br>
 					<br>
 					<div class="topName">${top.name}</div>
