@@ -16,7 +16,7 @@ body {
   color: white;
   outline-color: black;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  outline-width: 15px;
+  outline-width: 10px;
 }
 
 h1 {
@@ -24,27 +24,20 @@ h1 {
   text-align: center;
 }
 
-/* .top3 {
-  position: relative;
-  float: left;
-} */
 
 table, td {
   text-align: center;
   table-layout: fixed;
-  color: white;
+  color: white !important;
   outline-color: black;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  outline-width: 5px;
+  outline-width: 5px !important;
 }
 
 ul {
   list-style-type: none;
  }
  
-/*  .homeimg{
- 	float: left;
- } */
  
  .addComment{
    text-align: center;
@@ -73,15 +66,6 @@ ul {
 .topName{
 	width: 200px;
 }
-
-/* .places{
- position: absolute;
-    top:  50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-   display: block;
-   margin: 0 auto;
-} */
 
 .topImg{
 	width: 80%;
