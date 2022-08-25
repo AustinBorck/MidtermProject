@@ -2,18 +2,22 @@
 
 .header{
   background-repeat: no-repeat;
-background-image: url('../background.jpg');
-background-position: center;
- background-repeat: no-repeat;
+  background-image: url('../background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-background-color: gray;
+  background-color: gray;
  }
 
 body {
-font-family: monaco;
-background-color: #b25969;
-/*  background-color: light-gray;
- */}
+  font-family: monaco;
+  background-image: url('../orange.jpeg');
+  background-size: cover;
+  color: white;
+  outline-color: black;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  outline-width: 15px;
+}
 
 h1 {
   font-family: monaco, bold;
@@ -28,6 +32,10 @@ h1 {
 table, td {
   text-align: center;
   table-layout: fixed;
+  color: white;
+  outline-color: black;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  outline-width: 5px;
 }
 
 ul {
