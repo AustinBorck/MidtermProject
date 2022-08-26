@@ -27,8 +27,9 @@
 			</tbody>
 		</table>
 		</div>
-		<br>
-
+		<br><br>
+		<h4>“Pizza Palette connects people with great pizza joints”</h4>
+		<br><br>
 		<form action="searchKeyword.do" method="GET">
 			<div class="input-group">
 				<input class="form-control rounded" type="text" name="keyword"
@@ -38,6 +39,7 @@
 			</div>
 		</form>
 		<br> <br>
+		
 
 		<h3 class="text-center">This Week's Top Rated Pizza Joints</h3>
 		<br> <br>

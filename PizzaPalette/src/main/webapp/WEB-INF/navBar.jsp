@@ -22,9 +22,9 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="contact.do">Contact</a>
         </li>
-        <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link text-white" href="about.do">About</a>
-        </li>
+        </li> 
         <li class="nav-item">
           <a class="nav-link text-white" href="loginButton.do">Login</a>
         </li>

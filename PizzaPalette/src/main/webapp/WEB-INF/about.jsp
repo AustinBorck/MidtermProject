@@ -12,14 +12,7 @@
 <main class="container-fluid">
 <jsp:include page="navBar.jsp"></jsp:include><br><br>
 
-	<h1>About Pizza Palette</h1>
-	
-	<h2>Our Mission</h2>
-	
-	<p>
-	
-	</p><br>
-	
+
 	<h2>The Creators</h2><br>
 	
 	<p>
